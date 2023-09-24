@@ -1,35 +1,22 @@
 //import React from 'react'
 import * as React from 'react';
-import Slider from 'reactrangeslider';
+import Slider from "@mui/material/Slider";
 
+const RangeFilter = ({ device }: { device?:string }) => {
 
-// export interface SliderProps {
-//   disabled?: boolean | undefined;
-//   format?: ((value: number) => string | number | undefined) | undefined;
-//   handleLabel?: string | undefined;
-//   labels?: { [value: number]: string } | undefined;
-//   max?: number | undefined;
-//   min?: number | undefined;
-//   onChange?(value: number): void;
-//   onChangeComplete?(value: number): void;
-//   onChangeStart?(value: number): void;
-//   orientation?: string | undefined;
-//   reverse?: boolean | undefined;
-//   step?: number | undefined;
-//   tooltip?: boolean | undefined;
-//   className?: string | undefined;
-//   value: number;
-// }
-
-
-const RangeFilter = () => {
+  const [range, setRange] = React.useState([0, 100]);
+  function handleChanges(event: any, newValue: any) {
+    setRange(newValue);
+  }
   
   return (
-    
-    <div>
-      <Slider defaultValue={20} step={5} />
+    <div className='range-slider'>
+      <Slider value={range} onChange={handleChanges} valueLabelDisplay="auto" />
+      <div className="range-slider__description">
+        <span>{device}{range[0]}</span>
+        <span>{device}{range[1]}</span>
+      </div>
     </div>
-    
   )
 }
 
