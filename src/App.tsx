@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.scss';
 import RangeFilter from './components/RangeFilter';
 import Card from "./components/Card"
+import Pagination from './components/Pagination';
 
 function App() {
 
@@ -74,7 +75,7 @@ function App() {
                 <span className="aside__header-name">Year</span>
                 <span className="aside__header-filter">Clear</span>
               </div>
-              <select name="" id="">
+              <select name="" id="" className='aside__select'>
                 <option value="2000">2000</option>
                 <option value="2000">2000</option>
                 <option value="2000">2000</option>
@@ -178,6 +179,7 @@ function App() {
               <Card />
               <Card />
             </div>
+            <Pagination/>
           </div>
         </div>
       </div>

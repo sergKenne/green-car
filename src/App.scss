@@ -22,7 +22,9 @@ ul,ol {
 }
 
 .container {
-    max-width: 80rem;
+    max-width: 81rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
     margin-right: auto;
     margin-left: auto;
 }
@@ -39,10 +41,17 @@ ul,ol {
   display: flex;
   gap: 30px;
   align-items: flex-start;
+  @media screen and (max-width:780px) {
+    flex-direction: column;
+  }
   &__aside {
     flex: 0 0 354px;
     background-color: #ffffff;
     border: 1px solid #dfdfdf;
+    @media screen and (max-width:780px) {
+      flex: none;
+      width: 100%;
+    }
   }
   &__main {
     flex: 1;
@@ -111,10 +120,17 @@ ul,ol {
       position: absolute;
     }
   }
+  &__select {
+    width: 100%;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
   &__content-box {
     height: 240px;
     margin-right: -24px;
-    overflow-y: scroll;
+    //overflow-y: scroll;
+    overflow: auto;
   }
   &__input-wrap {
     display: flex;
@@ -173,12 +189,18 @@ ul,ol {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
+    @media screen and (max-width:1000px) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 20px;
+    }
   }
   &__top-list {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+    margin-right: 10px;
   }
   &__top-list-item {
     display: flex;
@@ -212,6 +234,11 @@ ul,ol {
     border: 1px solid #dfdfdf;
     margin-left: auto;
     position: relative;
+    @media screen and (max-width:1000px) {
+      flex: none;
+      width: 192px;
+      margin-left: 0;
+    }
   }
   &__top-dropdown {
     position: absolute;
@@ -258,12 +285,22 @@ ul,ol {
   border: 1px solid #dfdfdf;
   display: flex;
   color: #000000;
+  @media screen and (max-width:1000px) {
+    flex-direction: column;
+  }
   &__img {
     width: 40%;
+    @media screen and (max-width:1000px) {
+      width: 100%;
+      margin-bottom: 8px;
+    }
   }
   &__body {
     width: 60%;
     padding: 24px;
+    @media screen and (max-width:1000px) {
+      width: 100%;
+    }
   }
   &__title {
     font-size: 1.2rem;
@@ -287,6 +324,9 @@ ul,ol {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 16px ;
+    @media screen and (max-width:470px) {
+      grid-template-columns: 1fr;
+    }
   }
   &__info-name {
     margin-bottom: 8px;
@@ -318,11 +358,57 @@ ul,ol {
   }
 
   .css-187mznn-MuiSlider-root {
-    color:#90c396 ;
+    color:#90c396;
   }
   .MuiSlider-valueLabel.css-nnid7-MuiSlider-valueLabel {
     display: none;
   }
 
   
+}
+
+
+
+
+//PAGINATION
+
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  row-gap: 30px;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #2b2eff;
+  color: #2b2eff;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationDisabled a {
+  color: grey;
+  background-color: grey;
 }
