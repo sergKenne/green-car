@@ -1,0 +1,842 @@
+[
+    {
+        "id": 1,
+        "name": "Tesla Model X P100D",
+        "date": 2018,
+        "make": "Tesla",
+        "price": 91.222,
+        "info": {
+            "make": "Tesla",
+            "mileage": 16.676,
+            "location": "Oxnard, CA",
+            "fuel": "Electric"
+        },
+        "img": "tesla1.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Tesla Model 3 Standard Range Plus RWD",
+        "date": 2019,
+        "make": "Tesla",
+        "price": 43.281,
+        "info": {
+            "make": "Fresno, CA",
+            "mileage": 6.925,
+            "location": "Fresno, CA",
+            "fuel": "Electric"
+        },
+        "img": "tesla2.jpeg"
+    },
+    {
+        "id": 3,
+        "name": "Ford Fusion Hybrid SE FWD",
+        "date": 2020,
+        "make": "Ford",
+        "price": 28.995,
+        "info": {
+            "make": "Ford",
+            "mileage": 1.267,
+            "location": "Honolulu, HI",
+            "fuel": "Hybrid"
+        },
+        "img": ""
+    },
+    {
+        "id": 4,
+        "name": "Volkswagen e-Golf 4-Door SEL Premium",
+        "date": 2019,
+        "make": "Volkswagen",
+        "price": 28.290,
+        "info": {
+            "make": "Volkswagen",
+            "mileage": 18,
+            "location": "Walnut Creek, CA",
+            "fuel": "Electric"
+        },
+        "img": "volkswagen1.jpeg"
+    },
+    {
+        "id": 5,
+        "name": "Toyota Prius XLE",
+        "date": 2019,
+        "make": "Toyota",
+        "price": 26.999,
+        "info": {
+            "make": "Toyota",
+            "mileage": 20.718,
+            "location": "Roseburg, OR",
+            "fuel": "Hybrid"
+        },
+        "img": ""
+    },
+    {
+        "id": 6,
+        "name": "Lexus CT CT 200h FWD",
+        "date": 2017,
+        "make": "Lexus",
+        "price": 26.999,
+        "info": {
+            "make": "Lexus",
+            "mileage": 23.682,
+            "location": "Roseburg, OR",
+            "fuel": "Hybrid"
+        },
+        "img": ".jpeg"
+    },
+    {
+        "id": 7,
+        "name": "Honda Insight Touring CVT",
+        "date": 2019,
+        "make": "Honda",
+        "price": 26.995,
+        "info": {
+            "make": "Honda",
+            "mileage": 4.675,
+            "location": "Kahului, HI",
+            "fuel": "Hybrid"
+        },
+        "img": "honda1.jpeg"
+    },
+    {
+        "id": 8,
+        "name": "Kia Niro Touring FWD",
+        "date": 2017,
+        "make": "Kia",
+        "price": 24.999,
+        "info": {
+            "make": "Kia",
+            "mileage": 17.971,
+            "location": "Helena, MT",
+            "fuel": "Hybrid"
+        },
+        "img": "kia1.jpeg"
+    },
+    {
+        "id": 9,
+        "name": "Toyota Prius Three",
+        "date": 2018,
+        "make": "Toyota",
+        "price": 24.995,
+        "info": {
+            "make": "Toyota",
+            "mileage": 13.993,
+            "location": "Billings, MT",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota1.jpeg"
+    },
+    {
+        "id": 10,
+        "name": "Honda Insight EX CVT",
+        "date": 2020,
+        "make": "Honda",
+        "price": 24.995,
+        "info": {
+            "make": "Honda",
+            "mileage": 519.129,
+            "location": "Kahului, HI",
+            "fuel": "Hybrid"
+        },
+        "img": "honda2.jpeg"
+    },
+    {
+        "id": 11,
+        "name": "Tesla Model 3 LONG RANGE",
+        "date": 2018,
+        "make": "Tesla",
+        "price": 42.524,
+        "info": {
+            "make": "Tesla",
+            "mileage": 16.005,
+            "location": "Maplewood , NJ",
+            "fuel": "Electric"
+        },
+        "img": "tesla3.jpeg"
+    },
+    {
+        "id": 12,
+        "name": "Honda Accord Hybrid Sedan",
+        "date": 2018,
+        "make": "Honda",
+        "price": 24.991,
+        "info": {
+            "make": "Honda",
+            "mileage": 23.998,
+            "location": "Great Falls, MT",
+            "fuel": "Hybrid"
+        },
+        "img": ""
+    },
+    {
+        "id": 13,
+        "name": "Honda Civic EX-T CVT w/Honda Sensing",
+        "date": 2018,
+        "make": "Honda",
+        "price": 24.988,
+        "info": {
+            "make": "Honda",
+            "mileage": 34613,
+            "location": "Midland, TX",
+            "fuel": "Gasoline"
+        },
+        "img": "honda3.jpeg"
+    },
+    {
+        "id": 14,
+        "name": "Hyundai IONIQ Electric Hatchback",
+        "date": 2018,
+        "make": "Hyundai",
+        "price": 24.985,
+        "info": {
+            "make": "Hyundai",
+            "mileage": 15.274,
+            "location": "Eureka, CA",
+            "fuel": "Electric"
+        },
+        "img": "hyundai1.jpeg"
+    },
+    {
+        "id": 15,
+        "name": "Kia Optima Hybrid EX Auto",
+        "date": 2019,
+        "make": "Kia",
+        "price": 24.977,
+        "info": {
+            "make": "Kia",
+            "mileage": 16.846,
+            "location": "Klamath Falls, OR",
+            "fuel": "Hybrid"
+        },
+        "img": "kia2.jpeg"
+    },
+    {
+        "id": 16,
+        "name": "Toyota Camry Hybrid LE CVT",
+        "date": 2018,
+        "make": "Toyota",
+        "price": 23.999,
+        "info": {
+            "make": "Toyota",
+            "mileage": 27.190,
+            "location": "Ames, IA",
+            "fuel": "Hybrid"
+        },
+        "img": ""
+    },
+    {
+        "id": 17,
+        "name": "Toyota Prius Three Touring",
+        "date": 2018,
+        "make": "Toyota",
+        "price": 20.420,
+        "info": {
+            "make": "Toyota",
+            "mileage": 24.647,
+            "location": "Pittsburgh, PA",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota2.jpeg"
+    },
+    {
+        "id": 18,
+        "name": "Volkswagen Jetta SEL Auto w/SULEV",
+        "date": 2019,
+        "make": "volkswagen",
+        "price": 20.200,
+        "info": {
+            "make": "volkswagen",
+            "mileage": 12.443,
+            "location": "Moon Township, PA",
+            "fuel": "Gasoline"
+        },
+        "img": ""
+    },
+    {
+        "id": 19,
+        "name": "Toyota Prius Two",
+        "date": 2018,
+        "make": "Toyota",
+        "price": 20.000,
+        "info": {
+            "make": "Toyota",
+            "mileage": 33.820,
+            "location": "Troy, NY",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota3.jpeg"
+    },
+    {
+        "id": 20,
+        "name": "Chevrolet Volt 5dr HB Premier",
+        "date": 2017,
+        "make": "Chevrolet",
+        "price": 19.998,
+        "info": {
+            "make": "Chevrolet",
+            "mileage": 52.057,
+            "location": "Reno, NV",
+            "fuel": "Plug-In Hybrid"
+        },
+        "img": ""
+    },
+    {
+        "id": 21,
+        "name": "Kia Forte LXS IVT",
+        "date": 2018,
+        "make": "Kia",
+        "price": 19.995,
+        "info": {
+            "make": "Kia",
+            "mileage": 1.818,
+            "location": "Wasila, AK",
+            "fuel": "Gasoline"
+        },
+        "img": ""
+    },
+    {
+        "id": 22,
+        "name": "Honda Civic Hatchback LX CVT w/Honda Sensing",
+        "date": 2017,
+        "make": "Honda",
+        "price": 19.995,
+        "info": {
+            "make": "Honda",
+            "mileage": 35.776,
+            "location": "Spokane, WA",
+            "fuel": "Gasoline"
+        },
+        "img": ""
+    },
+    {
+        "id": 23,
+        "name": "Honda Civic 4dr CVT EX-T",
+        "date": 2018,
+        "make": "Honda",
+        "price": 19.995,
+        "info": {
+            "make": "Honda",
+            "mileage": 27.359,
+            "location": "Kahului, HI",
+            "fuel": "Gasoline"
+        },
+        "img": "honda4.jpeg"
+    },
+    {
+        "id": 24,
+        "name": "Ford Fusion Hybrid Titanium FWD",
+        "date": 2019,
+        "make": "Ford",
+        "price": 19.995,
+        "info": {
+            "make": "Ford",
+            "mileage": 41.046,
+            "location": "Lodi, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "ford1.jpeg"
+    },
+    {
+        "id": 25,
+        "name": "Nissan LEAF SV Hatchback",
+        "date": 2019,
+        "make": "Nissan",
+        "price": 19.990,
+        "info": {
+            "make": "Nissan",
+            "mileage": 6.113,
+            "location": "Portland, OR",
+            "fuel": "Electric"
+        },
+        "img": ""
+    },
+    {
+        "id": 26,
+        "name": "Chevrolet Bolt EV 5dr HB Premier",
+        "date": 2017,
+        "make": "Chevrolet",
+        "price": 19.990,
+        "info": {
+            "make": "Chevrolet",
+            "mileage": 36.315,
+            "location": "Salem, OR",
+            "fuel": "Electric"
+        },
+        "img": "chevrolet1.jpeg"
+    },
+    {
+        "id": 27,
+        "name": "Chevrolet Bolt EV 5dr HB Premier",
+        "date": 2018,
+        "make": "Chevrolet",
+        "price": 19.988,
+        "info": {
+            "make": "Chevrolet",
+            "mileage": 19.974,
+            "location": "Portland, OR",
+            "fuel": "Electric"
+        },
+        "img": "chevrolet2.jpeg"
+    },
+    {
+        "id": 28,
+        "name": "Toyota Corolla HYBRID LE",
+        "date": 2020,
+        "make": "Toyota",
+        "price": 19.990,
+        "info": {
+            "make": "Toyota",
+            "mileage": 5.581,
+            "location": "Oxnard, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota4.jpeg"
+    },
+    {
+        "id": 29,
+        "name": "Toyota Prius L Eco",
+        "date": 2019,
+        "make": "Toyota",
+        "price": 19.988,
+        "info": {
+            "make": "Toyota",
+            "mileage": 26.898,
+            "location": "Torrance, CA",
+            "fuel": "Hybrid"
+        },
+        "img": ""
+    },
+    {
+        "id": 30,
+        "name": "Toyota Camry L Auto",
+        "date": 2019,
+        "make": "Toyota",
+        "price": 19.988,
+        "info": {
+            "make": "Toyota",
+            "mileage": 32.431,
+            "location": "Torrance, CA",
+            "fuel": "Gasoline"
+        },
+        "img": "toyota5.jpeg"
+    },
+    {
+        "id": 31,
+        "name": "Hyundai Sonata Hybrid SE",
+        "date": 2019,
+        "make": "Hyundai",
+        "price": 19.988,
+        "info": {
+            "make": "Hyundai",
+            "mileage": 8.545,
+            "location": "Tustin, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "hyundai2.jpeg"
+    },
+    {
+        "id": 32,
+        "name": "Honda Accord Hybrid Touring Sedan",
+        "date": 2017,
+        "make": "Honda",
+        "price": 19.949,
+        "info": {
+            "make": "Honda",
+            "mileage": 50.620,
+            "location": "Abilene, TX",
+            "fuel": "Hybrid"
+        },
+        "img": "honda5.jpeg"
+    },
+    {
+        "id": 33,
+        "name": "Toyota Prius Two",
+        "date": 2018,
+        "make": "Toyota",
+        "price": 19.899,
+        "info": {
+            "make": "Toyota",
+            "mileage": 18.926,
+            "location": "Los Angeles, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota6.jpeg"
+    },
+    {
+        "id": 34,
+        "name": "Honda Civic EX CVT",
+        "date": 2018,
+        "make": "Honda",
+        "price": 19.891,
+        "info": {
+            "make": "Honda",
+            "mileage": 7.061,
+            "location": "San Diego, CA",
+            "fuel": "Gasoline"
+        },
+        "img": "honda6.jpeg"
+    },
+    {
+        "id": 35,
+        "name": "Honda Civic EX-L CVT",
+        "date": 2018,
+        "make": "Honda",
+        "price": 19.776,
+        "info": {
+            "make": "Honda",
+            "mileage": 25.635,
+            "location": "West Seneca, NY",
+            "fuel": "Gasoline"
+        },
+        "img": "honda7.jpeg"
+    },
+    {
+        "id": 36,
+        "name": "Toyota Prius Two",
+        "date": 2017,
+        "make": "Toyota",
+        "price": 19.599,
+        "info": {
+            "make": "Toyota",
+            "mileage": 54.557,
+            "location": "Odessa, TX",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota7.jpeg"
+    },
+    {
+        "id": 37,
+        "name": "Honda Insight LX CVT",
+        "date": 2019,
+        "make": "Honda",
+        "price": 19.500,
+        "info": {
+            "make": "Honda",
+            "mileage": 40.474,
+            "location": "Calabasas, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "honda8.jpeg"
+    },
+    {
+        "id": 38,
+        "name": "Toyota Prius Two",
+        "date": 2017,
+        "make": "Toyota",
+        "price": 19388,
+        "info": {
+            "make": "Toyota",
+            "mileage": 15246,
+            "location": "Carson, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota8.jpeg"
+    },
+    {
+        "id": 39,
+        "name": "Chevrolet Bolt EV LT",
+        "date": 2017,
+        "make": "Chevrolet",
+        "price": 19000,
+        "info": {
+            "make": "Chevrolet",
+            "mileage": 19335,
+            "location": "Tustin, CA",
+            "fuel": "Electric"
+        },
+        "img": "chevrolet3.jpeg"
+    },
+    {
+        "id": 40,
+        "name": "Toyota Prius 5dr HB Four Touring",
+        "date": 2016,
+        "make": "Toyota",
+        "price": 18999,
+        "info": {
+            "make": "Toyota",
+            "mileage": 68362,
+            "location": "Billings, MT",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota9.jpeg"
+    },
+    {
+        "id": 41,
+        "name": "Ford Fusion Hybrid SE FWD",
+        "date": 2018,
+        "make": "Ford",
+        "price": 18999,
+        "info": {
+            "make": "Ford",
+            "mileage": 47796,
+            "location": "San Angelo, TX",
+            "fuel": "Hybrid"
+        },
+        "img": "ford2.jpeg"
+    },
+    {
+        "id": 42,
+        "name": "Hyundai Sonata Hybrid Limited 2.0L",
+        "date": 2017,
+        "make": "Hyundai",
+        "price": 18990,
+        "info": {
+            "make": "Hyundai",
+            "mileage": 10777,
+            "location": "Portland, OR",
+            "fuel": "Hybrid"
+        },
+        "img": "hyundai3.jpeg"
+    },
+    {
+        "id": 43,
+        "name": "Lexus CT 200h 5dr Sdn Hybrid",
+        "date": 2017,
+        "make": "Lexus",
+        "price": 18888,
+        "info": {
+            "make": "Lexus",
+            "mileage": 17368,
+            "location": "Torrance, CA",
+            "fuel": "Hybrid"
+        },
+        "img": ""
+    },
+    {
+        "id": 44,
+        "name": "Volkswagen Jetta SE Auto w/SULEV",
+        "date": 2019,
+        "make": "Volkswagen",
+        "price": 18495,
+        "info": {
+            "make": "Volkswagen",
+            "mileage": ,
+            "location": "Honolulu, HI",
+            "fuel": "Gasoline"
+        },
+        "img": ""
+    },
+    {
+        "id": 45,
+        "name": "BMW i3 94 Ah",
+        "date": 2017,
+        "make": "BMW",
+        "price": 17500,
+        "info": {
+            "make": "BMW",
+            "mileage": 27609,
+            "location": "pokane, WA",
+            "fuel": "Electric"
+        },
+        "img": "bmw1.jpeg"
+    },
+    {
+        "id": 46 ,
+        "name": "Kia Niro LX FWD",
+        "date": 2017,
+        "make": "Kia",
+        "price": 17499,
+        "info": {
+            "make": "Kia",
+            "mileage": 38387,
+            "location": "Pocatello, ID",
+            "fuel": "Hybrid"
+        },
+        "img": "kia3.jpeg"
+    },
+    {
+        "id": 47,
+        "name": "Ford Fusion Hybrid Titanium FWD",
+        "date": 2019,
+        "make": "Ford",
+        "price": 17491,
+        "info": {
+            "make": "Ford",
+            "mileage": 35577,
+            "location": "Kennewick, WA",
+            "fuel": "Hybrid"
+        },
+        "img": "ford3.jpeg"
+    },
+    {
+        "id": 48,
+        "name": "BMW i3 4dr HB",
+        "date": 2014,
+        "make": "BMW",
+        "price": 15995,
+        "info": {
+            "make": "BMW",
+            "mileage": 23673,
+            "location": "Seattle, WA",
+            "fuel": "Electric"
+        },
+        "img": "bmw2.jpeg"
+    },
+    {
+        "id": 49,
+        "name": "Volkswagen e-Golf 4dr HB SEL Premium",
+        "date": 2016,
+        "make": "Volkswagen",
+        "price": 15990,
+        "info": {
+            "make": "Volkswagen",
+            "mileage": 20676,
+            "location": "Salem, OR",
+            "fuel": "Electric"
+        },
+        "img": "volkswagen2.jpeg"
+    },
+    {
+        "id": 50,
+        "name": "Kia Soul EV 5dr Wgn",
+        "date": 2020,
+        "make": "Kia",
+        "price": 15499,
+        "info": {
+            "make": "Kia",
+            "mileage": 19879,
+            "location": "Great Falls, MT",
+            "fuel": "Electric"
+        },
+        "img": "kia4.jpeg"
+    },
+    {
+        "id": 51,
+        "name": "Hyundai IONIQ Electric Limited Hatchback",
+        "date": 2017,
+        "make": "Hyundai",
+        "price": 13999,
+        "info": {
+            "make": "Hyundai",
+            "mileage": 77500,
+            "location": "Gardena, CA",
+            "fuel": "Electric"
+        },
+        "img": "hyundai4.jpeg"
+    },
+    {
+        "id": 52,
+        "name": "Mazda3 4dr Sdn Auto i Touring",
+        "date": 2016,
+        "make": "Mazda3",
+        "price": 13888,
+        "info": {
+            "make": "Mazda3",
+            "mileage": 62608,
+            "location": "Riverside, CA",
+            "fuel": "Gasoline"
+        },
+        "img": "mazda1.jpeg"
+    },
+    {
+        "id": 53,
+        "name": "Toyota Prius 5dr HB Five",
+        "date": 2015,
+        "make": "Toyota",
+        "price": 13290,
+        "info": {
+            "make": "Toyota",
+            "mileage": 111613,
+            "location": "Walnut Creek, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota10.jpeg"
+    },
+    {
+        "id": 54,
+        "name": "Mazda3 4dr Sdn Auto i Sport",
+        "date": 2015,
+        "make": "Mazda3",
+        "price": 11500,
+        "info": {
+            "make": "Mazda3",
+            "mileage": 88924,
+            "location": "Clovis, CA",
+            "fuel": "Gasoline"
+        },
+        "img": "mazda2.jpeg"
+    },
+    {
+        "id": 55,
+        "name": "Volkswagen e-Golf SE",
+        "date": 2016,
+        "make": "Volkswagen",
+        "price": 11488,
+        "info": {
+            "make": "Volkswagen",
+            "mileage": 10779,
+            "location": "Oxnard, CA",
+            "fuel": "Electric"
+        },
+        "img": "volkswagen3.jpeg"
+    },
+    {
+        "id": 56,
+        "name": "Mitsubishi Mirage ES CVT",
+        "date": 2018,
+        "make": "Mitsubishi",
+        "price": 10700,
+        "info": {
+            "make": "Mitsubishi",
+            "mileage": 14417,
+            "location": "Moon Township, PA",
+            "fuel": "Gasoline"
+        },
+        "img": "mitsubishi1.jpeg"
+    },
+    {
+        "id": 57,
+        "name": "Mazda3 4dr Sdn Auto i Sport",
+        "date": 2015,
+        "make": "Mazda3",
+        "price": 9995,
+        "info": {
+            "make": "Mazda3",
+            "mileage": 99097,
+            "location": "Reno, NV",
+            "fuel": "Gasoline"
+        },
+        "img": "mazda3.jpeg"
+    },
+    {
+        "id": 58,
+        "name": "Nissan LEAF 4dr HB S *Ltd Avail*",
+        "date": 2018,
+        "make": "Nissan",
+        "price": 9995,
+        "info": {
+            "make": "Nissan",
+            "mileage": 33064,
+            "location": "Kahului, HI",
+            "fuel": "Electric"
+        },
+        "img": "nissan1.jpeg"
+    },
+    {
+        "id": 59,
+        "name": "Toyota Prius 5dr HB II",
+        "date": 2011,
+        "make": "Toyota",
+        "price": 9590,
+        "info": {
+            "make": "Toyota",
+            "mileage": 102664,
+            "location": "Walnut Creek, CA",
+            "fuel": "Hybrid"
+        },
+        "img": "toyota11.jpeg"
+    },
+    {
+        "id": 60,
+        "name": "Nissan LEAF 4dr HB S",
+        "date": 2015,
+        "make": "Nissan",
+        "price": 9788,
+        "info": {
+            "make": "Nissan",
+            "mileage": 26832,
+            "location": "Oregon City, OR",
+            "fuel": "Electric"
+        },
+        "img": "nissan2.jpeg"
+    }
+]
