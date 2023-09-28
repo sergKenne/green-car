@@ -1,17 +1,26 @@
-import React, { createContext, useReducer } from 'react'
-
-const useFilterContext = createContext<unknown>(null)
-
-export const FilterContext = ({ children }:any) => {
-  
-  //const [state, dispatch] = useReducer(filterReducer, initialState )
+import React, { ReactNode, createContext, useReducer, useState } from 'react'
+import filterReducer from './reducers/filterReducer'
+import { IState } from './reducers/filterReducer/types'
 
 
-  return (
-    <useFilterContext.Provider value={{ name: true }}>
-      {children}
-    </useFilterContext.Provider>
-  )
+type IMake = {
+  make: string
 }
 
-//export default FilterContext
+// const initialState:IState = {
+//   filtered: []
+// }
+
+export const FilterContext = createContext<unknown>(null)
+
+export const AppFilterContext = ({ children }:{children: ReactNode}) => {
+  
+  //const [state, dispatch] = useReducer<any>(filterReducer, initialState )
+  const [filtering, setFiltering] = useState<IMake[]>([])
+
+  return (
+    <FilterContext.Provider value={{ filtering, setFiltering }}>
+      {children}
+    </FilterContext.Provider>
+  )
+}

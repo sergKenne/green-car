@@ -1,0 +1,5 @@
+
+
+export type IState = {
+  filtered: []
+}

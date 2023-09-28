@@ -81,7 +81,7 @@
             "location": "Roseburg, OR",
             "fuel": "Hybrid"
         },
-        "img": ".jpeg"
+        "img": "lexus1.jpeg"
     },
     {
         "id": 7,
@@ -609,7 +609,7 @@
         "price": 18495,
         "info": {
             "make": "Volkswagen",
-            "mileage": ,
+            "mileage": 25463,
             "location": "Honolulu, HI",
             "fuel": "Gasoline"
         },
