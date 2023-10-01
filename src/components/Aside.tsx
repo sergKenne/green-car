@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import RangeFilter from './RangeFilter'
 import { getMakes, getFuels, getLocations, getDates } from '../utils';
 import products from "../data.json"
@@ -9,27 +9,51 @@ import { FilterContext } from '../context/FilterContext';
 
 const Aside = () => {
 
-  const {filtering, setFiltering} = useContext<any>(FilterContext)
+  const {
+    filtering,
+    setFiltering,
+    rangePrice,
+    setRangePrice,
+    rangeMileage,
+    setRangeMileage
+  } = useContext<any>(FilterContext)
 
   console.log("Filtering:", filtering);
+  console.log("getFuel:", getFuels(products));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.checked);
 
     if (e.target.name === "make") {
-      if (e.target.checked === true) {
+      if (e.target.checked) {
         setFiltering((prevState: any) => [...prevState, { [e.target.name]: e.target.value }])
       } else {
         setFiltering((prevState:any) => prevState.filter((item:any) => item.make !== e.target.value))
       }
     } else if (e.target.name === "fuel") {
-      if (e.target.checked === true) {
+      if (e.target.checked) {
         setFiltering((prevState: any) => [...prevState, { [e.target.name]: e.target.value }])
       } else {
-        setFiltering((prevState:any) => prevState.filter((item:any) => item.make !== e.target.value))
+        setFiltering((prevState:any) => prevState.filter((item:any) => item.fuel !== e.target.value))
       }
-    } else {
-      console.log("object");
+    } else if (e.target.type === 'radio') {
+      const isCheck = filtering.find((el: any) => el.location)
+      console.log("isCheck:", isCheck);
+      if (e.target.checked) {
+        if (!isCheck) {
+          setFiltering((prevState: any) => [...prevState, { [e.target.name]: e.target.value }])
+        } else {
+          //isCheck.location = e.target.value
+          setFiltering(filtering.map((item:any) => {
+            if (item.location) {
+              item.location = e.target.value;
+              return item;
+            } else {
+              return item
+            }
+          }))
+        }
+      } 
     }
   }
 
@@ -74,14 +98,25 @@ const Aside = () => {
           <span className="aside__header-name">Price</span>
           <span className="aside__header-filter">Clear</span>
         </div>
-        <RangeFilter device='$' />
+        <RangeFilter
+          device='$'
+          filterName="price"
+          minmaxVal={[0, 100000]}
+          range={rangePrice }
+          setRange={setRangePrice}
+        />
       </div>
       <div className="aside__box">
         <div className="aside__header-box">
           <span className="aside__header-name">Mileage</span>
           <span className="aside__header-filter">Clear</span>
         </div>
-        <RangeFilter />
+        <RangeFilter
+          filterName="mileage"
+          minmaxVal={[0, 600000]}
+          range={ rangeMileage }
+          setRange={ setRangeMileage }
+        />
       </div>
       <div className="aside__box">
         <div className="aside__header-box">
@@ -127,7 +162,14 @@ const Aside = () => {
         <div className="aside__content-box">
           {getLocations(products).map((location) => (
             <label key={location} htmlFor={location} className="aside__input-wrap">
-              <input className='aside__input-check' id={location} type="radio" name="location" />
+              <input
+                className='aside__input-check'
+                id={location}
+                value={location}
+                type="radio"
+                name="location"
+                onChange={handleChange}
+              />
               <span className="aside__input-btn aside__input-btn--radio">
               </span>
               <span>{location}</span>
