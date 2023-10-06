@@ -6,12 +6,9 @@ export type IProduct = {
   date: number,
   make: string,
   price: number,
-  info: {
-    make: string,
-    mileage: number,
-    location: string,
-    fuel: string
-  },
+  mileage: number,
+  location: string,
+  fuel: string
   img?: string
 }
 
@@ -20,7 +17,7 @@ type IProps = {
 }
 
 const Card = ({ product }: IProps) => {
-  const {name, date, make, price, info: {mileage, location, fuel}, img } = product
+  const {name, date, make, price, mileage, location, fuel, img } = product
   return (
     <div className='card'>
       <img src={`img/${img?img:"card-default.jpeg"}`} alt="" className="card__img" />

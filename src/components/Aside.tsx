@@ -15,14 +15,14 @@ const Aside = () => {
     rangePrice,
     setRangePrice,
     rangeMileage,
-    setRangeMileage
+    setRangeMileage,
   } = useContext<any>(FilterContext)
 
-  console.log("Filtering:", filtering);
-  console.log("getFuel:", getFuels(products));
+  //console.log("Filtering:", filtering);
+  //console.log("getFuel:", getFuels(products));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.checked);
+    //console.log(e.target.checked);
 
     if (e.target.name === "make") {
       if (e.target.checked) {
@@ -75,7 +75,7 @@ const Aside = () => {
           <span className="aside__header-filter">Clear</span>
         </div>
         <div className="aside__content-box">
-          {getMakes(products).map((make) => (
+          {getMakes(products).map((make:string) => (
             <label key={make} htmlFor={make} className="aside__input-wrap">
               <input
                 className='aside__input-check'
@@ -101,7 +101,7 @@ const Aside = () => {
         <RangeFilter
           device='$'
           filterName="price"
-          minmaxVal={[0, 100000]}
+          minmaxVal={[0, 90000]}
           range={rangePrice }
           setRange={setRangePrice}
         />
@@ -113,7 +113,7 @@ const Aside = () => {
         </div>
         <RangeFilter
           filterName="mileage"
-          minmaxVal={[0, 600000]}
+          minmaxVal={[0, 60000]}
           range={ rangeMileage }
           setRange={ setRangeMileage }
         />
