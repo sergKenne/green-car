@@ -1,6 +1,7 @@
-import React, { ReactNode, createContext, useState } from 'react'
+import React, { ReactNode, createContext, useState, useRef } from 'react'
 import products from '../data.json'
 import { getMakes } from '../utils'
+import { ILocation } from '../types'
 
 type IMake = {
   make: string
@@ -13,11 +14,12 @@ export const AppFilterContext = ({ children }:{children: ReactNode}) => {
   const [filtering, setFiltering] = useState<IMake[]>([])
   const [rangePrice, setRangePrice] = useState([]);
   const [rangeMileage, setRangeMileage] = useState([]);
-  //const [productsMake, setProductsMake] = useState(getMakes(products))
+  const [locations, setLocations] = useState<ILocation[]>([])
+  const selectRef = useRef<any>()
 
   return (
     <FilterContext.Provider
-      value={{ filtering, setFiltering, rangePrice, setRangePrice, rangeMileage, setRangeMileage }}
+      value={{ filtering, setFiltering, rangePrice, setRangePrice, rangeMileage, setRangeMileage, locations, setLocations, selectRef }}
     >
       {children}
     </FilterContext.Provider>

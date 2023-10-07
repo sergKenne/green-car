@@ -10,7 +10,7 @@ import { getObjFiltering } from './utils';
 
 function App() {
 
-  const { filtering, setFiltering, setRangePrice, setRangeMileage } = useContext<any>(FilterContext)
+  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef } = useContext<any>(FilterContext)
   
   const removeFromFilter = (item: any) => {
     console.log("item:", item);
@@ -22,6 +22,14 @@ function App() {
     if (item.mileage) {
       setFiltering(filtering.filter((el: any) => !el.mileage))
       setRangeMileage([0, 600000]);
+    }
+    if (item.location) {
+      setFiltering(filtering.filter((elt: any) => !elt.location))
+      setLocations(locations.map((elt: any) => ({ ...elt, checked: false })))
+    }
+    if (item.date) {
+      setFiltering(filtering.filter((elt: any) => !elt.date))
+      selectRef.current.value = "Select year"
     }
   }
 
@@ -38,7 +46,7 @@ function App() {
           <img src="img/logo.svg" alt="logo" className="header__logo" />
         </div>
         <div className="content">
-          <Aside/>
+          <Aside productsFiltered={ ProductsFilter} />
           <div className="main content__main">
             <div className="main__top">
               <ul className="main__top-list">

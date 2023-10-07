@@ -5,29 +5,39 @@ export const getMakes = (products: IProduct[]) => {
     return products.reduce(
         (acc: string[], curr: IProduct) => (acc.includes(curr.make) ? acc : [...acc, curr.make]),
         [],
-    ) //.map(elt => ({make: elt, checked: false }));
+    ).map(elt => ({make: elt, checked: false }));
 };
 
-export const getDates = (products: IProduct[]) => {
-    return products.reduce(
-        (acc: number[], curr: IProduct) => (acc.includes(curr.date) ? acc : [...acc, curr.date]),
-        [],
-    );
+export const getYears = (products: IProduct[]) => {
+    return products
+        .reduce(
+            (acc: number[], curr: IProduct) =>
+                acc.includes(curr.date) ? acc : [...acc, curr.date],
+            [],
+        )
+        
 };
 
 export const getFuels = (products: IProduct[]) => {
-    return products.reduce(
-        (acc: string[], curr: IProduct) => (acc.includes(curr.fuel) ? acc : [...acc, curr.fuel]),
-        [],
-    );
+    return products
+        .reduce(
+            (acc: string[], curr: IProduct) =>
+                acc.includes(curr.fuel) ? acc : [...acc, curr.fuel],
+            [],
+        )
+        .map((elt) => ({ fuel: elt, checked: false }));
 };
 
 export const getLocations = (products: IProduct[]) => {
-    return products.reduce(
-        (acc: string[], curr: IProduct) =>
-            acc.includes(curr.location.split(",")[1]) ? acc : [...acc, curr.location.split(",")[1]],
-        [],
-    );
+    return products
+        .reduce(
+            (acc: string[], curr: IProduct) =>
+                acc.includes(curr.location.split(',')[1])
+                    ? acc
+                    : [...acc, curr.location.split(',')[1]],
+            [],
+        )
+        .map((elt) => ({ location: elt, checked: false }));
 };
 
 
@@ -207,6 +217,53 @@ export const getObjFiltering = (arrFiltered:any, products:any) => {
                 tempFiltered = [...productsFiltered];
                 productsFiltered = [];
             } else if (counter === 4) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+            }
+        });
+    }
+
+    if (objKeys.length === 6) {
+        let counter = 1;
+        objKeys.forEach((key) => {
+            if (counter === 1) {
+                data.forEach((item) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+                console.log('tempFiltered:', tempFiltered);
+            } else if (counter === 2) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 3) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 4) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 5) {
                 tempFiltered.forEach((item: any) => {
                     conditionFilter(key, item);
                 });
