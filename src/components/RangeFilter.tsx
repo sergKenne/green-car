@@ -1,4 +1,3 @@
-//import React from 'react'
 import * as React from 'react';
 import Slider from "@mui/material/Slider";
 import { FilterContext } from '../context/FilterContext';
@@ -15,14 +14,9 @@ const RangeFilter = ({ device, filterName, minmaxVal, range, setRange }:IRange )
   
   const { filtering, setFiltering } = React.useContext<any>(FilterContext)
 
-  //const [range, setRange] = React.useState(minmaxVal);
-
   function handleChanges(event: any, newValue: any) {
-    console.log("newValue:", newValue);
-
-    const formatValue = `[${newValue[0]}, ${newValue[1]}]`
-
     setRange(newValue);
+    //console.log("newValue:", newValue);
 
     if (filterName === "mileage") {
       const isCheck = filtering.find((el: any) => el.mileage);
@@ -53,7 +47,6 @@ const RangeFilter = ({ device, filterName, minmaxVal, range, setRange }:IRange )
         }))
       }
     }
-
   }
 
   React.useEffect(() => {

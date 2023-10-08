@@ -2,9 +2,9 @@
     {
         "id": 1,
         "name": "Tesla Model X P100D",
-        "date": 2018,
+        "year": 2018,
         "make": "Tesla",
-        "price": 91222,
+        "price": 81222,
         "mileage": 16676,
         "location": "Oxnard, CA",
         "fuel": "Electric",
@@ -13,10 +13,10 @@
     {
         "id": 2,
         "name": "Tesla Model 3 Standard Range Plus RWD",
-        "date": 2019,
+        "year": 2019,
         "make": "Tesla",
         "price": 43281,
-        "mileage": 69256,
+        "mileage": 59256,
         "location": "Fresno, CA",
         "fuel": "Electric",
         "img": "tesla2.jpeg"
@@ -24,7 +24,7 @@
     {
         "id": 3,
         "name": "Ford Fusion Hybrid SE FWD",
-        "date": 2020,
+        "year": 2020,
         "make": "Ford",
         "price": 28995,
         "mileage": 12678,
@@ -35,7 +35,7 @@
     {
         "id": 4,
         "name": "Volkswagen e-Golf 4-Door SEL Premium",
-        "date": 2019,
+        "year": 2019,
         "make": "Volkswagen",
         "price": 28290,
         "mileage": 18345,
@@ -46,7 +46,7 @@
     {
         "id": 5,
         "name": "Toyota Prius XLE",
-        "date": 2019,
+        "year": 2019,
         "make": "Toyota",
         "price": 26999,
         "mileage": 20718,
@@ -57,7 +57,7 @@
     {
         "id": 6,
         "name": "Lexus CT CT 200h FWD",
-        "date": 2017,
+        "year": 2017,
         "make": "Lexus",
         "price": 26999,
         "mileage": 23682,
@@ -68,7 +68,7 @@
     {
         "id": 7,
         "name": "Honda Insight Touring CVT",
-        "date": 2019,
+        "year": 2019,
         "make": "Honda",
         "price": 26995,
         "mileage": 46756,
@@ -79,7 +79,7 @@
     {
         "id": 8,
         "name": "Kia Niro Touring FWD",
-        "date": 2017,
+        "year": 2017,
         "make": "Kia",
         "price": 24999,
         "mileage": 17971,
@@ -90,7 +90,7 @@
     {
         "id": 9,
         "name": "Toyota Prius Three",
-        "date": 2018,
+        "year": 2018,
         "make": "Toyota",
         "price": 24995,
         "mileage": 13993,
@@ -101,10 +101,10 @@
     {
         "id": 10,
         "name": "Honda Insight EX CVT",
-        "date": 2020,
+        "year": 2020,
         "make": "Honda",
         "price": 24995,
-        "mileage": 519129,
+        "mileage": 51129,
         "location": "Kahului, HI",
         "fuel": "Hybrid",
         "img": "honda2.jpeg"
@@ -112,7 +112,7 @@
     {
         "id": 11,
         "name": "Tesla Model 3 LONG RANGE",
-        "date": 2018,
+        "year": 2018,
         "make": "Tesla",
         "price": 42524,
         "mileage": 16005,
@@ -123,7 +123,7 @@
     {
         "id": 12,
         "name": "Honda Accord Hybrid Sedan",
-        "date": 2018,
+        "year": 2018,
         "make": "Honda",
         "price": 24991,
         "mileage": 23998,
@@ -134,7 +134,7 @@
     {
         "id": 13,
         "name": "Honda Civic EX-T CVT w/Honda Sensing",
-        "date": 2018,
+        "year": 2018,
         "make": "Honda",
         "price": 24988,
         "mileage": 34613,
@@ -145,7 +145,7 @@
     {
         "id": 14,
         "name": "Hyundai IONIQ Electric Hatchback",
-        "date": 2018,
+        "year": 2018,
         "make": "Hyundai",
         "price": 24985,
         "mileage": 15274,
@@ -156,7 +156,7 @@
     {
         "id": 15,
         "name": "Kia Optima Hybrid EX Auto",
-        "date": 2019,
+        "year": 2019,
         "make": "Kia",
         "price": 24977,
         "mileage": 16846,
@@ -167,7 +167,7 @@
     {
         "id": 16,
         "name": "Toyota Camry Hybrid LE CVT",
-        "date": 2018,
+        "year": 2018,
         "make": "Toyota",
         "price": 23999,
         "mileage": 27190,
@@ -178,7 +178,7 @@
     {
         "id": 17,
         "name": "Toyota Prius Three Touring",
-        "date": 2018,
+        "year": 2018,
         "make": "Toyota",
         "price": 20420,
         "mileage": 24647,
@@ -189,7 +189,7 @@
     {
         "id": 18,
         "name": "Volkswagen Jetta SEL Auto w/SULEV",
-        "date": 2019,
+        "year": 2019,
         "make": "volkswagen",
         "price": 20200,
         "mileage": 12443,
@@ -200,7 +200,7 @@
     {
         "id": 19,
         "name": "Toyota Prius Two",
-        "date": 2018,
+        "year": 2018,
         "make": "Toyota",
         "price": 20000,
         "mileage": 33820,
@@ -211,7 +211,7 @@
     {
         "id": 20,
         "name": "Chevrolet Volt 5dr HB Premier",
-        "date": 2017,
+        "year": 2017,
         "make": "Chevrolet",
         "price": 19998,
         "mileage": 52057,
@@ -222,7 +222,7 @@
     {
         "id": 21,
         "name": "Kia Forte LXS IVT",
-        "date": 2018,
+        "year": 2018,
         "make": "Kia",
         "price": 1995,
         "mileage": 2918,
@@ -233,7 +233,7 @@
     {
         "id": 22,
         "name": "Honda Civic Hatchback LX CVT w/Honda Sensing",
-        "date": 2017,
+        "year": 2017,
         "make": "Honda",
         "price": 1995,
         "mileage": 3776,
@@ -244,7 +244,7 @@
     {
         "id": 23,
         "name": "Honda Civic 4dr CVT EX-T",
-        "date": 2018,
+        "year": 2018,
         "make": "Honda",
         "price": 19995,
         "mileage": 27359,
@@ -255,7 +255,7 @@
     {
         "id": 24,
         "name": "Ford Fusion Hybrid Titanium FWD",
-        "date": 2019,
+        "year": 2019,
         "make": "Ford",
         "price": 19995,
         "mileage": 41046,
@@ -266,7 +266,7 @@
     {
         "id": 25,
         "name": "Nissan LEAF SV Hatchback",
-        "date": 2019,
+        "year": 2019,
         "make": "Nissan",
         "price": 19990,
         "mileage": 6113,
@@ -277,7 +277,7 @@
     {
         "id": 26,
         "name": "Chevrolet Bolt EV 5dr HB Premier",
-        "date": 2017,
+        "year": 2017,
         "make": "Chevrolet",
         "price": 19990,
         "mileage": 36315,
@@ -288,7 +288,7 @@
     {
         "id": 27,
         "name": "Chevrolet Bolt EV 5dr HB Premier",
-        "date": 2018,
+        "year": 2018,
         "make": "Chevrolet",
         "price": 19988,
         "mileage": 19974,
@@ -299,7 +299,7 @@
     {
         "id": 28,
         "name": "Toyota Corolla HYBRID LE",
-        "date": 2020,
+        "year": 2020,
         "make": "Toyota",
         "price": 19990,
         "mileage": 5581,
@@ -310,7 +310,7 @@
     {
         "id": 29,
         "name": "Toyota Prius L Eco",
-        "date": 2019,
+        "year": 2019,
         "make": "Toyota",
         "price": 19988,
         "mileage": 26898,
@@ -321,7 +321,7 @@
     {
         "id": 30,
         "name": "Toyota Camry L Auto",
-        "date": 2019,
+        "year": 2019,
         "make": "Toyota",
         "price": 19988,
         "mileage": 32431,
@@ -332,7 +332,7 @@
     {
         "id": 31,
         "name": "Hyundai Sonata Hybrid SE",
-        "date": 2019,
+        "year": 2019,
         "make": "Hyundai",
         "price": 19988,
         "mileage": 8545,
@@ -343,7 +343,7 @@
     {
         "id": 32,
         "name": "Honda Accord Hybrid Touring Sedan",
-        "date": 2017,
+        "year": 2017,
         "make": "Honda",
         "price": 19949,
         "mileage": 50620,
@@ -354,7 +354,7 @@
     {
         "id": 33,
         "name": "Toyota Prius Two",
-        "date": 2018,
+        "year": 2018,
         "make": "Toyota",
         "price": 19899,
         "mileage": 18926,
@@ -365,7 +365,7 @@
     {
         "id": 34,
         "name": "Honda Civic EX CVT",
-        "date": 2018,
+        "year": 2018,
         "make": "Honda",
         "price": 19891,
         "mileage": 7061,
@@ -376,7 +376,7 @@
     {
         "id": 35,
         "name": "Honda Civic EX-L CVT",
-        "date": 2018,
+        "year": 2018,
         "make": "Honda",
         "price": 19776,
         "mileage": 25635,
@@ -387,7 +387,7 @@
     {
         "id": 36,
         "name": "Toyota Prius Two",
-        "date": 2017,
+        "year": 2017,
         "make": "Toyota",
         "price": 19599,
         "mileage": 54557,
@@ -398,7 +398,7 @@
     {
         "id": 37,
         "name": "Honda Insight LX CVT",
-        "date": 2019,
+        "year": 2019,
         "make": "Honda",
         "price": 19500,
          "mileage": 40474,
@@ -409,7 +409,7 @@
     {
         "id": 38,
         "name": "Toyota Prius Two",
-        "date": 2017,
+        "year": 2017,
         "make": "Toyota",
         "price": 19388,
         "mileage": 15246,
@@ -420,7 +420,7 @@
     {
         "id": 39,
         "name": "Chevrolet Bolt EV LT",
-        "date": 2017,
+        "year": 2017,
         "make": "Chevrolet",
         "price": 19000,
         "mileage": 19335,
@@ -431,10 +431,10 @@
     {
         "id": 40,
         "name": "Toyota Prius 5dr HB Four Touring",
-        "date": 2016,
+        "year": 2016,
         "make": "Toyota",
         "price": 18999,
-        "mileage": 68362,
+        "mileage": 48362,
         "location": "Billings, MT",
         "fuel": "Hybrid",
         "img": "toyota9.jpeg"
@@ -442,7 +442,7 @@
     {
         "id": 41,
         "name": "Ford Fusion Hybrid SE FWD",
-        "date": 2018,
+        "year": 2018,
         "make": "Ford",
         "price": 18999,
         "mileage": 47796,
@@ -453,10 +453,10 @@
     {
         "id": 42,
         "name": "Hyundai Sonata Hybrid Limited 2.0L",
-        "date": 2017,
+        "year": 2017,
         "make": "Hyundai",
         "price": 18990,
-        "mileage": 10777,
+        "mileage": 20777,
         "location": "Portland, OR",
         "fuel": "Hybrid",
         "img": "hyundai3.jpeg"
@@ -464,7 +464,7 @@
     {
         "id": 43,
         "name": "Lexus CT 200h 5dr Sdn Hybrid",
-        "date": 2017,
+        "year": 2017,
         "make": "Lexus",
         "price": 18888,
         "mileage": 17368,
@@ -475,7 +475,7 @@
     {
         "id": 44,
         "name": "Volkswagen Jetta SE Auto w/SULEV",
-        "date": 2019,
+        "year": 2019,
         "make": "Volkswagen",
         "price": 18495,
         "mileage": 25463,
@@ -486,7 +486,7 @@
     {
         "id": 45,
         "name": "BMW i3 94 Ah",
-        "date": 2017,
+        "year": 2017,
         "make": "BMW",
         "price": 17500,
         "mileage": 27609,
@@ -497,7 +497,7 @@
     {
         "id": 46 ,
         "name": "Kia Niro LX FWD",
-        "date": 2017,
+        "year": 2017,
         "make": "Kia",
         "price": 17499,
         "mileage": 38387,
@@ -508,7 +508,7 @@
     {
         "id": 47,
         "name": "Ford Fusion Hybrid Titanium FWD",
-        "date": 2019,
+        "year": 2019,
         "make": "Ford",
         "price": 17491,
         "mileage": 35577,
@@ -519,7 +519,7 @@
     {
         "id": 48,
         "name": "BMW i3 4dr HB",
-        "date": 2014,
+        "year": 2014,
         "make": "BMW",
         "price": 15995,
         "mileage": 23673,
@@ -530,7 +530,7 @@
     {
         "id": 49,
         "name": "Volkswagen e-Golf 4dr HB SEL Premium",
-        "date": 2016,
+        "year": 2016,
         "make": "Volkswagen",
         "price": 15990,
         "mileage": 20676,
@@ -541,7 +541,7 @@
     {
         "id": 50,
         "name": "Kia Soul EV 5dr Wgn",
-        "date": 2020,
+        "year": 2020,
         "make": "Kia",
         "price": 15499,
         "mileage": 19879,
@@ -552,10 +552,10 @@
     {
         "id": 51,
         "name": "Hyundai IONIQ Electric Limited Hatchback",
-        "date": 2017,
+        "year": 2017,
         "make": "Hyundai",
         "price": 13999,
-        "mileage": 77500,
+        "mileage": 57500,
         "location": "Gardena, CA",
         "fuel": "Electric",
         "img": "hyundai4.jpeg"
@@ -563,10 +563,10 @@
     {
         "id": 52,
         "name": "Mazda3 4dr Sdn Auto i Touring",
-        "date": 2016,
+        "year": 2016,
         "make": "Mazda3",
         "price": 13888,
-        "mileage": 62608,
+        "mileage": 6608,
         "location": "Riverside, CA",
         "fuel": "Gasoline",
         "img": "mazda1.jpeg"
@@ -574,10 +574,10 @@
     {
         "id": 53,
         "name": "Toyota Prius 5dr HB Five",
-        "date": 2015,
+        "year": 2015,
         "make": "Toyota",
         "price": 13290,
-        "mileage": 111613,
+        "mileage": 11613,
         "location": "Walnut Creek, CA",
         "fuel": "Hybrid",
         "img": "toyota10.jpeg"
@@ -585,10 +585,10 @@
     {
         "id": 54,
         "name": "Mazda3 4dr Sdn Auto i Sport",
-        "date": 2015,
+        "year": 2015,
         "make": "Mazda3",
         "price": 11500,
-        "mileage": 88924,
+        "mileage": 28924,
         "location": "Clovis, CA",
         "fuel": "Gasoline",
         "img": "mazda2.jpeg"
@@ -596,10 +596,10 @@
     {
         "id": 55,
         "name": "Volkswagen e-Golf SE",
-        "date": 2016,
+        "year": 2016,
         "make": "Volkswagen",
         "price": 11488,
-        "mileage": 10779,
+        "mileage": 40779,
         "location": "Oxnard, CA",
         "fuel": "Electric",
         "img": "volkswagen3.jpeg"
@@ -607,7 +607,7 @@
     {
         "id": 56,
         "name": "Mitsubishi Mirage ES CVT",
-        "date": 2018,
+        "year": 2018,
         "make": "Mitsubishi",
         "price": 10700,
         "mileage": 14417,
@@ -618,10 +618,10 @@
     {
         "id": 57,
         "name": "Mazda3 4dr Sdn Auto i Sport",
-        "date": 2015,
+        "year": 2015,
         "make": "Mazda3",
         "price": 9995,
-        "mileage": 99097,
+        "mileage": 39097,
         "location": "Reno, NV",
         "fuel": "Gasoline",
         "img": "mazda3.jpeg"
@@ -629,7 +629,7 @@
     {
         "id": 58,
         "name": "Nissan LEAF 4dr HB S *Ltd Avail*",
-        "date": 2018,
+        "year": 2018,
         "make": "Nissan",
         "price": 9995,
         "mileage": 33064,
@@ -640,10 +640,10 @@
     {
         "id": 59,
         "name": "Toyota Prius 5dr HB II",
-        "date": 2011,
+        "year": 2011,
         "make": "Toyota",
         "price": 9590,
-        "mileage": 102664,
+        "mileage": 12664,
         "location": "Walnut Creek, CA",
         "fuel": "Hybrid",
         "img": "toyota11.jpeg"
@@ -651,7 +651,7 @@
     {
         "id": 60,
         "name": "Nissan LEAF 4dr HB S",
-        "date": 2015,
+        "year": 2015,
         "make": "Nissan",
         "price": 9788,
         "mileage": 26832,

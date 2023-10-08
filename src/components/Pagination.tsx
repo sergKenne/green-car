@@ -1,17 +1,16 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ReactPaginate from 'react-paginate';
-//import JsonData from "../MOCK_DATA.json";
-import JsonData from "../MOCK_DATA.json";
+import { IProduct } from './Card';
 
-const Pagination = () => {
-  const [users, setUsers] = useState(JsonData.slice(0, 200));
-  const [pageNumber, setPageNumber] = useState(0);
+type IPagination = {
+  products: IProduct[],
+  usersPerPage: number,
+  setPageNumber: any
+}
 
-  const usersPerPage = 10;
-  const pagesVisited = pageNumber * usersPerPage;
+const Pagination = ({ products, usersPerPage, setPageNumber }: IPagination ) => {
 
-
-  const pageCount = Math.ceil(users.length / usersPerPage);
+  const pageCount = Math.ceil(products.length / usersPerPage);
 
   const changePage = ({ selected }:any) => {
     setPageNumber(selected);

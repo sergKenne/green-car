@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import RangeFilter from './RangeFilter'
 import { getMakes, getFuels, getLocations, getYears } from '../utils';
 import products from "../data.json"
 import { FilterContext } from '../context/FilterContext';
 import {IFuel, IMake } from '../types';
 import { IProduct } from './Card';
-
-
-
+import Search from './Search';
 
 const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
-
   const {
     filtering,
     setFiltering,
@@ -26,16 +23,10 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
 
   const [makes, setMakes] = useState<IMake[]>([])
   const [fuels, setFuels] = useState<IFuel[]>([])
-  
-  
-
   console.log("Filtering:", filtering);
-  //console.log("getFuel:", getFuels(products));
-  console.log("MAkes:", makes);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-
+    
     if (e.target.name === "make") {
       if (e.target.checked) {
         setFiltering((prevState: any[]) => [...prevState, { [e.target.name]: e.target.value }])
@@ -54,7 +45,6 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
       }
     } else if (e.target.type === 'radio') {
       const isCheck = filtering.find((el: any) => el.location)
-      console.log("isCheck:", isCheck);
       if (e.target.checked) {
         if (!isCheck) {
           setFiltering((prevState: any) => [...prevState, { [e.target.name]: e.target.value }])
@@ -74,8 +64,11 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
   }
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
-    setFiltering((prevState: any) => [...prevState.filter((el:any) => !el.date), { date: Number(e.target.value)}])
+    if (e.target.value === "Select year") {
+      setFiltering((prevState: any) => [...prevState.filter((el: any) => !el.year)])
+    } else {
+      setFiltering((prevState: any) => [...prevState.filter((el:any) => !el.year), { year: Number(e.target.value)}])
+    }
   }
 
   const clearMakesFilter = () => {
@@ -105,7 +98,6 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
 
   const clearYearFilter = () => {
     selectRef.current.value = "Select year"
-    console.log("selectRef:", selectRef);
   }
 
   const clearAllFilter = () => {
@@ -118,21 +110,15 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     setFiltering([])
   }
 
-
-
   useEffect(() => {
     setMakes(getMakes(products))
     setFuels(getFuels(products))
     setLocations(getLocations(products))
-    
   },[])
 
   return (
     <div className="aside content__aside">
-      <form className="aside__search">
-        <img src="img/search-icon.svg" alt="search icon" className="aside__search-icon" />
-        <input type="text" className="aside__search-input" placeholder='Search here...' />
-      </form>
+      <Search/>
       <div className="aside__box">
         <div className="aside__header-box">
           <span className="aside__header-name aside__header-name--desc">Showing {productsFiltered.length} results of {products.length} items.</span>

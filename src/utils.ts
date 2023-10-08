@@ -1,5 +1,6 @@
 import { IProduct } from "./components/Card"
 import data from './data.json'
+import { ESort } from "./types";
 
 export const getMakes = (products: IProduct[]) => {
     return products.reduce(
@@ -12,7 +13,7 @@ export const getYears = (products: IProduct[]) => {
     return products
         .reduce(
             (acc: number[], curr: IProduct) =>
-                acc.includes(curr.date) ? acc : [...acc, curr.date],
+                acc.includes(curr.year) ? acc : [...acc, curr.year],
             [],
         )
         
@@ -40,22 +41,55 @@ export const getLocations = (products: IProduct[]) => {
         .map((elt) => ({ location: elt, checked: false }));
 };
 
+//FILTER BY SORT
+export const filterBySort = (sort: string, products: IProduct[]) => {
+    switch (sort) {
+        case ESort.NAME_ASC:
+            return products.sort((a, b) => {
+                const aName = a.name.toLowerCase();
+                const bName = b.name.toLowerCase();
+                if (aName < bName) return -1;
+                if (aName > bName) return 1;
+                return 0;
+            });
+        case ESort.NAME_DESC:
+            return products.sort((a, b) => {
+                const aName = a.name.toLowerCase();
+                const bName = b.name.toLowerCase();
+                if (aName > bName) return -1;
+                if (aName < bName) return 1;
+                return 0;
+            });
+        case ESort.YEAR_ASC:
+            return products.sort((a, b) => a.year - b.year);
+        case ESort.YEAR_DESC:
+            return products.sort((a, b) => b.year - a.year);
+        case ESort.LOWEST_PRICE:
+            return products.sort((a, b) => a.price - b.price);
+        case ESort.HIGHEST_PRICE:
+            return products.sort((a, b) => b.price - a.price);
+        case ESort.LOWEST_MILEAGE:
+            return products.sort((a, b) => a.mileage - b.mileage);
+        case ESort.HIGHEST_MILEAGE:
+            return products.sort((a, b) => b.mileage - a.mileage);
+        default:
+            return products;
+    }
+}
 
-const ar = [
-    { make: 'Tesla' },
-    { make: 'Lexus' },
-    { make: 'Toyota' },
-    { price: [14069, 54791] },
-    { fuel: 'Hybrid' },
-    { fuel: 'Gasoline' },
-    { location: ' CA' },
-    { location: ' MT' },
-    { mileage: [246616, 476576] },
-];
+//SEARCH PRODUCTS
+export const searchProducts = (search: string, products: IProduct[]) => {
+    if (!search.trim().length) {
+        return products
+    } else {
+        return products.reduce((acc: IProduct[], curr: IProduct) => {
+            return curr.name.toLowerCase().includes(search.toLowerCase()) ? [...acc, curr] : acc
+        }, [])
+    }
+}
 
-export const getObjFiltering = (arrFiltered:any, products:any) => {
+export const getProductsFiltered = (arrFiltered:any, products:any) => {
     const obj: any = {};
-
     arrFiltered.forEach((elt:any) => {
         if (!obj[Object.keys(elt)[0]]) {
             obj[Object.keys(elt)[0]] = [elt[Object.keys(elt)[0]]];
@@ -63,11 +97,7 @@ export const getObjFiltering = (arrFiltered:any, products:any) => {
             obj[Object.keys(elt)[0]] = [...obj[Object.keys(elt)[0]], elt[Object.keys(elt)[0]]];
         }
     });
-
-    
-
-    console.log('getObjFiltering:', obj);
-
+    //console.log('getObjFiltering:', obj);
     const conditionFilter = (key:any, item:any) => {
         if (key === 'location') {
             if (obj[key][0].trim() === item[key].split(' ')[1]) {
@@ -98,12 +128,10 @@ export const getObjFiltering = (arrFiltered:any, products:any) => {
         }
     }
 
-
     let productsFiltered: any = [];
     let tempFiltered: any = [];
     const objKeys = Object.keys(obj)
     
-
     if (objKeys.length === 1) {
         objKeys.forEach((key) => {
             data.forEach((item: any) => {
@@ -277,12 +305,7 @@ export const getObjFiltering = (arrFiltered:any, products:any) => {
             }
         });
     }
-
-    console.log('productsFiltered:', productsFiltered);
+    //console.log('productsFiltered:', productsFiltered);
     return productsFiltered
 }
 
-
-getObjFiltering(ar, data)
- 
- 

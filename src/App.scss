@@ -14,7 +14,6 @@ input::placeholder {
   color: #8f8f8f;
   opacity: 0.5;
   font-size: 1rem;
-  // color: red;
 }
 
 ul,ol {
@@ -55,6 +54,10 @@ ul,ol {
   }
   &__main {
     flex: 1;
+    @media screen and (max-width:780px) {
+      flex: none;
+      width: 100%;
+    }
   }
 }
 
@@ -79,12 +82,10 @@ ul,ol {
     font-size: 1rem;
     color: #333333;
     width: 100%;
-    
   }
   &__box {
     padding-left: 24px;
     padding-right: 24px;
-    // margin-bottom: 16px;
     border-bottom: 1px solid #dfdfdf;
   }
   &__header-box {
@@ -260,6 +261,10 @@ ul,ol {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+    &.active {
+      background-color: #f4f9f4;
+      color: #3c7c43;
+    }
   }
   &__top-inner-sort {
     display: flex;
@@ -279,7 +284,6 @@ ul,ol {
 }
 
 //CARD
-
 .card {
   background-color: #ffffff;
   border: 1px solid #dfdfdf;
@@ -340,11 +344,27 @@ ul,ol {
   }
 }
 
+.no-found {
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000000;
+  
+  padding-top: 20px;
+  padding-bottom: 25px;
+  img {
+    width: 100px;
+  }
+  h5 {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}
 
-
-
-
-
+//RANGE SLIDER
 .range-slider {
   padding-left: 2%;
   padding-right: 2%;
@@ -356,22 +376,15 @@ ul,ol {
     margin-left: -2%;
     margin-right: -2%;
   }
-
   .css-187mznn-MuiSlider-root {
     color:#90c396;
   }
   .MuiSlider-valueLabel.css-nnid7-MuiSlider-valueLabel {
     display: none;
   }
-
-  
 }
 
-
-
-
 //PAGINATION
-
 .pagination {
   margin-top: 40px;
   display: flex;
@@ -390,25 +403,46 @@ ul,ol {
 }
 
 .paginationBttns a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid #2b2eff;
-  color: #2b2eff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dae4d8;
+  background-color: #fff;
+  color: #757575;
   cursor: pointer;
+  &.nextBttn, &.previousBttn  {
+    width: auto;
+  }
 }
 
 .paginationBttns a:hover {
-  color: white;
-  background-color: #2b2eff;
+  background-color: #fff;
+  color: #757575;
 }
 
 .paginationActive a {
-  color: white;
-  background-color: #2b2eff;
+  border-color: #3c7c43;
+  background-color: #3c7c43;
+  opacity: 1;
+  color: #fff;
+  cursor: not-allowed;
+  &:hover {
+    color: #fff;
+    border-color: #3c7c43;
+    background-color: #3c7c43;
+    opacity: 1;
+  }
 }
 
 .paginationDisabled a {
   color: grey;
   background-color: grey;
+  display: none;
 }

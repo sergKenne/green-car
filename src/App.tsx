@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.scss';
 import Card, { IProduct } from "./components/Card"
 import Pagination from './components/Pagination';
@@ -6,11 +6,16 @@ import products from "./data.json"
 import Dropdown from './components/Dropdown';
 import Aside from './components/Aside';
 import { FilterContext } from './context/FilterContext';
-import { getObjFiltering } from './utils';
+import { filterBySort, getProductsFiltered } from './utils';
+import NoFound from './components/NoFound';
 
 function App() {
 
-  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef } = useContext<any>(FilterContext)
+  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort } = useContext<any>(FilterContext)
+
+  const [pageNumber, setPageNumber] = useState(0);
+  const usersPerPage = 10;
+  const pagesVisited = pageNumber * usersPerPage;
   
   const removeFromFilter = (item: any) => {
     console.log("item:", item);
@@ -27,8 +32,8 @@ function App() {
       setFiltering(filtering.filter((elt: any) => !elt.location))
       setLocations(locations.map((elt: any) => ({ ...elt, checked: false })))
     }
-    if (item.date) {
-      setFiltering(filtering.filter((elt: any) => !elt.date))
+    if (item.year) {
+      setFiltering(filtering.filter((elt: any) => !elt.year))
       selectRef.current.value = "Select year"
     }
   }
@@ -37,8 +42,8 @@ function App() {
     return word[0].toUpperCase() + word.slice(1).toLowerCase();
   }
 
-  const ProductsFilter = (filtering.length === 0) ? products : getObjFiltering(filtering, products)
-  
+  const productsFiltered = (filtering.length === 0) ? products : getProductsFiltered(filtering, products)
+
   return (
     <div className="page">
       <div className="container">
@@ -46,7 +51,7 @@ function App() {
           <img src="img/logo.svg" alt="logo" className="header__logo" />
         </div>
         <div className="content">
-          <Aside productsFiltered={ ProductsFilter} />
+          <Aside productsFiltered={productsFiltered} />
           <div className="main content__main">
             <div className="main__top">
               <ul className="main__top-list">
@@ -75,9 +80,14 @@ function App() {
               <Dropdown/>
             </div>
             <div className="main__products">
-              {ProductsFilter.map((product:IProduct) => <Card product={ product } key={product.id} />)}
+              {filterBySort(currentSort, productsFiltered).slice(pagesVisited, pagesVisited + usersPerPage).map((product:IProduct) => <Card product={ product } key={product.id} />)}
             </div>
-            <Pagination/>
+            {(productsFiltered.length === 0)  && <NoFound/>}
+            <Pagination
+              products={productsFiltered}
+              usersPerPage={usersPerPage} 
+              setPageNumber={setPageNumber}
+            />
           </div>
         </div>
       </div>
