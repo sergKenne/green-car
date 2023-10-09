@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.scss';
 import Card, { IProduct } from "./components/Card"
 import Pagination from './components/Pagination';
@@ -18,8 +18,8 @@ function App() {
   const pagesVisited = pageNumber * usersPerPage;
   
   const removeFromFilter = (item: any) => {
-    console.log("item:", item);
-    console.log("filtering:", filtering);
+    // console.log("item:", item);
+    // console.log("filtering:", filtering);
     if (item.price) {
       setFiltering(filtering.filter((el: any) => !el.price))
       setRangePrice([0, 100000]);
@@ -47,10 +47,6 @@ function App() {
   const productsAfterSort = filterBySort(currentSort, productsFiltered)
 
   const productsAfterSearch = filterBySearch(search, productsAfterSort)
-
-  useEffect(() => {
-    
-  },[filtering])
 
   return (
     <div className="page">

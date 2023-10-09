@@ -25,3 +25,10 @@ export enum ESort {
   YEAR_DESC = "Year (Desc)"
 }
 
+export type IRange = {
+    device?: string;
+    minmaxVal: number[];
+    range: number[];
+    setRange: any;
+};
+

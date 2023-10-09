@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import RangeFilter from './RangeFilter'
-import { getMakes, getFuels, getLocations, getYears } from '../utils';
+import RangeMileage from './RangeMileage'
+import RangePrice from './RangePrice'
+import { getMakes, getFuels, getYears, setDataToStorage, getDataFromStorage } from '../utils';
 import products from "../data.json"
 import { FilterContext } from '../context/FilterContext';
 import {IFuel, IMake } from '../types';
@@ -17,16 +18,14 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     setRangeMileage,
     locations,
     setLocations, 
-    selectRef
-
+    selectRef,
+    setCurrentSort
   } = useContext<any>(FilterContext)
 
-  const [makes, setMakes] = useState<IMake[]>([])
-  const [fuels, setFuels] = useState<IFuel[]>([])
-  console.log("Filtering:", filtering);
+  const [makes, setMakes] = useState<IMake[]>(JSON.parse(getDataFromStorage("makes")) || getMakes(products))
+  const [fuels, setFuels] = useState<IFuel[]>(JSON.parse(getDataFromStorage("fuels")) || getFuels(products))
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    
     if (e.target.name === "make") {
       if (e.target.checked) {
         setFiltering((prevState: any[]) => [...prevState, { [e.target.name]: e.target.value }])
@@ -64,6 +63,7 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
   }
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setDataToStorage("year", e.target.value)
     if (e.target.value === "Select year") {
       setFiltering((prevState: any) => [...prevState.filter((el: any) => !el.year)])
     } else {
@@ -107,14 +107,15 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     clearMileageFilter()
     clearLocationFilter()
     selectRef.current.value = "Select year"
+    setCurrentSort("Sort by")
     setFiltering([])
   }
 
   useEffect(() => {
-    setMakes(getMakes(products))
-    setFuels(getFuels(products))
-    setLocations(getLocations(products))
-  },[])
+    setDataToStorage("makes", makes)
+    setDataToStorage("fuels", fuels)
+    setDataToStorage("locations", locations)
+  },[makes,fuels, locations])
 
   return (
     <div className="aside content__aside">
@@ -164,9 +165,8 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
             onClick={clearPriceFilter}
           >Clear</span>
         </div>
-        <RangeFilter
+        <RangePrice
           device='$'
-          filterName="price"
           minmaxVal={[0, 90000]}
           range={rangePrice }
           setRange={setRangePrice}
@@ -180,8 +180,7 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
             onClick={clearMileageFilter}
           >Clear</span>
         </div>
-        <RangeFilter
-          filterName="mileage"
+        <RangeMileage
           minmaxVal={[0, 60000]}
           range={ rangeMileage }
           setRange={ setRangeMileage }

@@ -5,15 +5,18 @@ import { ESort } from "./types";
 
 
 export const setDataToStorage = (name: string, value: any) => {
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-        localStorage.setItem(name, JSON.stringify(value) )
-    } else {
-         localStorage.setItem(name, value);
-    }
+    localStorage.setItem(name, JSON.stringify(value));
+    // if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+    //     localStorage.setItem(name, JSON.stringify(value))
+    //     console.log("filteringStorage:", localStorage.getItem("filtering"));
+    // } else {
+    //      localStorage.setItem(name, value);
+    // }
 }
 
-export const getDataFromStorage = (name: string) => {
-    return localStorage.getItem(name) 
+export const getDataFromStorage = (name: string): any => {
+    const storageVal = localStorage.getItem(name);
+    return storageVal //storageVal !== null ? JSON.parse(storageVal) : storageVal;
 }
 
 export const getMakes = (products: IProduct[]) => {
@@ -323,7 +326,7 @@ export const getProductsFiltered = (arrFiltered:any, products:any) => {
             }
         });
     }
-    //console.log('productsFiltered:', productsFiltered);
+
     return productsFiltered
 }
 
