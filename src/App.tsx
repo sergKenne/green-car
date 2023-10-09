@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './App.scss';
 import Card, { IProduct } from "./components/Card"
 import Pagination from './components/Pagination';
@@ -6,12 +6,12 @@ import products from "./data.json"
 import Dropdown from './components/Dropdown';
 import Aside from './components/Aside';
 import { FilterContext } from './context/FilterContext';
-import { filterBySort, getProductsFiltered } from './utils';
+import { filterBySearch, filterBySort, getProductsFiltered } from './utils';
 import NoFound from './components/NoFound';
 
 function App() {
 
-  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort } = useContext<any>(FilterContext)
+  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search } = useContext<any>(FilterContext)
 
   const [pageNumber, setPageNumber] = useState(0);
   const usersPerPage = 10;
@@ -43,6 +43,14 @@ function App() {
   }
 
   const productsFiltered = (filtering.length === 0) ? products : getProductsFiltered(filtering, products)
+
+  const productsAfterSort = filterBySort(currentSort, productsFiltered)
+
+  const productsAfterSearch = filterBySearch(search, productsAfterSort)
+
+  useEffect(() => {
+    
+  },[filtering])
 
   return (
     <div className="page">
@@ -80,11 +88,11 @@ function App() {
               <Dropdown/>
             </div>
             <div className="main__products">
-              {filterBySort(currentSort, productsFiltered).slice(pagesVisited, pagesVisited + usersPerPage).map((product:IProduct) => <Card product={ product } key={product.id} />)}
+              {productsAfterSearch.slice(pagesVisited, pagesVisited + usersPerPage).map((product:IProduct) => <Card product={ product } key={product.id} />)}
             </div>
-            {(productsFiltered.length === 0)  && <NoFound/>}
+            {(productsAfterSearch.length === 0)  && <NoFound/>}
             <Pagination
-              products={productsFiltered}
+              products={productsAfterSearch}
               usersPerPage={usersPerPage} 
               setPageNumber={setPageNumber}
             />

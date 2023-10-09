@@ -1,6 +1,20 @@
+
 import { IProduct } from "./components/Card"
 import data from './data.json'
 import { ESort } from "./types";
+
+
+export const setDataToStorage = (name: string, value: any) => {
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        localStorage.setItem(name, JSON.stringify(value) )
+    } else {
+         localStorage.setItem(name, value);
+    }
+}
+
+export const getDataFromStorage = (name: string) => {
+    return localStorage.getItem(name) 
+}
 
 export const getMakes = (products: IProduct[]) => {
     return products.reduce(
@@ -78,12 +92,16 @@ export const filterBySort = (sort: string, products: IProduct[]) => {
 }
 
 //SEARCH PRODUCTS
-export const searchProducts = (search: string, products: IProduct[]) => {
+export const filterBySearch = (search: string, products: IProduct[]) => {
     if (!search.trim().length) {
         return products
     } else {
         return products.reduce((acc: IProduct[], curr: IProduct) => {
-            return curr.name.toLowerCase().includes(search.toLowerCase()) ? [...acc, curr] : acc
+            return curr.name.toLowerCase().includes(search.toLowerCase()) ||
+                curr.fuel.toLowerCase().includes(search.toLowerCase()) ||
+                curr.make.toLowerCase().includes(search.toLowerCase())
+                ? [...acc, curr]
+                : acc;
         }, [])
     }
 }
@@ -97,7 +115,7 @@ export const getProductsFiltered = (arrFiltered:any, products:any) => {
             obj[Object.keys(elt)[0]] = [...obj[Object.keys(elt)[0]], elt[Object.keys(elt)[0]]];
         }
     });
-    //console.log('getObjFiltering:', obj);
+    console.log('getObjFiltering:', obj);
     const conditionFilter = (key:any, item:any) => {
         if (key === 'location') {
             if (obj[key][0].trim() === item[key].split(' ')[1]) {
