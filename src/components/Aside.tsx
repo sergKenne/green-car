@@ -115,7 +115,11 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     setDataToStorage("makes", makes)
     setDataToStorage("fuels", fuels)
     setDataToStorage("locations", locations)
-  },[makes,fuels, locations])
+  }, [makes, fuels, locations])
+  
+  // useEffect(() => {
+  //   selectRef.current.value = getDataFromStorage("year") 
+  // }, [])
 
   return (
     <div className="aside content__aside">

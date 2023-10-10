@@ -4943,6 +4943,11 @@
   "resolved" "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.6.0.tgz"
   "version" "4.6.0"
 
+"eslint-plugin-react-hooks@^5.0.0-canary-be67db46b-20231010":
+  "integrity" "sha512-M/CADLilIrQ1o7e6Lu6H/y+D9ccpdaPDG2kAtsylkS5ZBvo3SZlxTd977FvrAbrO+7CjnHUVKxI9bnQxgMY/hQ=="
+  "resolved" "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-5.0.0-canary-be67db46b-20231010.tgz"
+  "version" "5.0.0-canary-be67db46b-20231010"
+
 "eslint-plugin-react@^7.27.1":
   "integrity" "sha512-73QQMKALArI8/7xGLNI/3LylrEYrlKZSb5C9+q3OtOewTnMQi5cT+aE9E41sLCmli3I9PGGmD1yiZydyo4FEPw=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.33.2.tgz"

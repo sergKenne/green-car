@@ -32,6 +32,7 @@ const RangePrice = ({ device, minmaxVal, range, setRange }: IRange) => {
 
   React.useEffect(() => {
     setRange(JSON.parse(getDataFromStorage("rangePrice")) || minmaxVal)
+  
   }, [])
 
   return (
