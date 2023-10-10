@@ -20,6 +20,14 @@ ul,ol {
   list-style: none;
 }
 
+html * /* override x.xhtml.ru style */ 
+{
+  scrollbar-width: thin;
+  scrollbar-color: rgb(99, 99, 117) rgb(219, 217, 213);
+}
+
+
+
 .container {
     max-width: 81rem;
     padding-left: .5rem;
@@ -129,9 +137,28 @@ ul,ol {
   }
   &__content-box {
     height: 240px;
-    margin-right: -24px;
-    //overflow-y: scroll;
+    margin-right: -19px;
     overflow: auto;
+    margin-bottom: 10px;
+
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar {
+      height: 8px;
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-track {
+      background: rgb(219, 217, 213);
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(99, 99, 117);
+      border-radius: 5px;
+      /* border: 1px solid rgb(219, 217, 213); */
+    }
+
+
   }
   &__input-wrap {
     display: flex;
