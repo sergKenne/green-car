@@ -6,17 +6,11 @@ import { ESort } from "./types";
 
 export const setDataToStorage = (name: string, value: any) => {
     localStorage.setItem(name, JSON.stringify(value));
-    // if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-    //     localStorage.setItem(name, JSON.stringify(value))
-    //     console.log("filteringStorage:", localStorage.getItem("filtering"));
-    // } else {
-    //      localStorage.setItem(name, value);
-    // }
 }
 
 export const getDataFromStorage = (name: string): any => {
     const storageVal = localStorage.getItem(name);
-    return storageVal //storageVal !== null ? JSON.parse(storageVal) : storageVal;
+    return storageVal 
 }
 
 export const getMakes = (products: IProduct[]) => {
@@ -32,8 +26,7 @@ export const getYears = (products: IProduct[]) => {
             (acc: number[], curr: IProduct) =>
                 acc.includes(curr.year) ? acc : [...acc, curr.year],
             [],
-        )
-        
+        )   
 };
 
 export const getFuels = (products: IProduct[]) => {
