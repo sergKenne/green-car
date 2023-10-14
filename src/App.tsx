@@ -6,7 +6,7 @@ import products from "./data.json"
 import Dropdown from './components/Dropdown';
 import Aside from './components/Aside';
 import { FilterContext } from './context/FilterContext';
-import { filterBySearch, filterBySort, getProductsFiltered } from './utils';
+import { filterBySearch, filterBySort, getProductsFiltered, setDataToStorage } from './utils';
 import NoFound from './components/NoFound';
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
     if (item.year) {
       setFiltering(filtering.filter((elt: any) => !elt.year))
       selectRef.current.value = "Select year"
+      setDataToStorage("year", "Select year")
     }
   }
 

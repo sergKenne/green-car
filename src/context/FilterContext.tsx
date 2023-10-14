@@ -18,7 +18,7 @@ export const AppFilterContext = ({ children }:{children: ReactNode}) => {
   const [rangeMileage, setRangeMileage] = useState(JSON.parse(getDataFromStorage("rangeMileage")) || [0, 60000]);
   const [locations, setLocations] = useState<ILocation[]>(JSON.parse(getDataFromStorage("locations")) || getLocations(products))
   const [search, setSearch] = useState("")
-  const selectRef = useRef<any>() 
+  const selectRef = useRef<any>(JSON.parse(getDataFromStorage("year")) || "Select year")
 
   useEffect(() => {
     setDataToStorage("filtering", filtering);

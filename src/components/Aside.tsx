@@ -97,7 +97,9 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
   }
 
   const clearYearFilter = () => {
+    setFiltering(filtering.filter((elt: any) => !elt.year))
     selectRef.current.value = "Select year"
+    setDataToStorage("year", "Select year")
   }
 
   const clearAllFilter = () => {
@@ -107,6 +109,7 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     clearMileageFilter()
     clearLocationFilter()
     selectRef.current.value = "Select year"
+    setDataToStorage("year", "Select year")
     setCurrentSort("Sort by")
     setFiltering([])
   }
@@ -116,6 +119,12 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     setDataToStorage("fuels", fuels)
     setDataToStorage("locations", locations)
   }, [makes, fuels, locations])
+
+  useEffect(() => {
+    console.log("selectRef:", selectRef.current.value);
+    console.log("Year:", JSON.parse(getDataFromStorage("year")));
+    selectRef.current.value = JSON.parse(getDataFromStorage("year")) || "Select year"
+  },[])
   
   return (
     <div className="aside content__aside">
