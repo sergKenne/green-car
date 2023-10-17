@@ -4,7 +4,7 @@ import RangePrice from './RangePrice'
 import { getMakes, getFuels, getYears, setDataToStorage, getDataFromStorage } from '../utils';
 import products from "../data.json"
 import { FilterContext } from '../context/FilterContext';
-import {IFuel, IMake } from '../types';
+import { IFuel, IMake, ILocation, IYear } from '../types';
 import { IProduct } from './Card';
 import Search from './Search';
 
@@ -57,7 +57,7 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
             }
           }))
         }
-        setLocations(locations.map((elt:any) => (elt.location === e.target.value) ? ({...elt, checked: true}) : ({...elt, checked: false})))
+        setLocations(locations.map((elt:ILocation) => (elt.location === e.target.value) ? ({...elt, checked: true}) : ({...elt, checked: false})))
       } 
     }
   }
@@ -72,13 +72,13 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
   }
 
   const clearMakesFilter = () => {
-    setMakes(makes.map(elt => ({...elt, checked: false})))
+    setMakes(makes.map(make => ({...make, checked: false})))
     setFiltering(filtering.filter((elt:any) => Object.keys(elt)[0] !== "make"))
   }
 
   const clearFuelsFilter = () => {
-    setFuels(fuels.map(elt => ({ ...elt, checked: false })))
-    setFiltering(filtering.filter((elt: any) => Object.keys(elt)[0] !== "fuel"))
+    setFuels(fuels.map(fuel => ({ ...fuel, checked: false })))
+    setFiltering(filtering.filter((fuel: IFuel) => Object.keys(fuel)[0] !== "fuel"))
   }
 
   const clearPriceFilter = () => {
@@ -93,11 +93,11 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
 
   const clearLocationFilter = () => {
     setFiltering(filtering.filter((elt: any) => Object.keys(elt)[0] !== "location"))
-    setLocations(locations.map((elt:any) => ({ ...elt, checked: false })))
+    setLocations(locations.map((location:ILocation) => ({ ...location, checked: false })))
   }
 
   const clearYearFilter = () => {
-    setFiltering(filtering.filter((elt: any) => !elt.year))
+    setFiltering(filtering.filter((elt: IYear) => !elt.year))
     selectRef.current.value = "Select year"
     setDataToStorage("year", "Select year")
   }
@@ -121,8 +121,6 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
   }, [makes, fuels, locations])
 
   useEffect(() => {
-    console.log("selectRef:", selectRef.current.value);
-    console.log("Year:", JSON.parse(getDataFromStorage("year")));
     selectRef.current.value = JSON.parse(getDataFromStorage("year")) || "Select year"
   },[])
   
@@ -208,7 +206,7 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
           onChange={handleSelect}
           ref={selectRef}
         >
-          {["Select year",...getYears(products).sort()].map((date:any) => (
+          {["Select year",...getYears(products).sort()].map((date:string|number) => (
             <option
               key={date}
               value={date}

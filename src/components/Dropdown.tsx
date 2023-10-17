@@ -5,7 +5,7 @@ const Dropdown = () => {
 
   const sorts = ["Name (A/Z)", "Name (Z/A)", "Lowest price", "Highest price", "Lowest mileage", "Highest mileage", "Year (Asc)", "Year (Desc)"]
   const { currentSort, setCurrentSort } = React.useContext<any>(FilterContext)
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdown, setDropdown] = useState<boolean>(false);
   
   const handleClick = (sort:string) => {
     setDropdown(false)

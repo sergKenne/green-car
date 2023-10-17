@@ -102,7 +102,7 @@ export const filterBySearch = (search: string, products: IProduct[]) => {
     }
 }
 
-export const getProductsFiltered = (arrFiltered:any, products:any) => {
+export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
     const obj: any = {};
     arrFiltered.forEach((elt:any) => {
         if (!obj[Object.keys(elt)[0]]) {
@@ -142,8 +142,8 @@ export const getProductsFiltered = (arrFiltered:any, products:any) => {
         }
     }
 
-    let productsFiltered: any = [];
-    let tempFiltered: any = [];
+    let productsFiltered:IProduct[] = [];
+    let tempFiltered: IProduct[] = [];
     const objKeys = Object.keys(obj)
     
     if (objKeys.length === 1) {

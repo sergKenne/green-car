@@ -14,6 +14,16 @@ export type ILocation = {
     checked: boolean;
 };
 
+export type IPrice = {
+    price: number;
+    checked: boolean;
+};
+
+export type IYear = {
+    year: number;
+    checked: boolean;
+};
+
 export enum ESort {
   NAME_ASC = "Name (A/Z)",
   NAME_DESC = "Name (Z/A)",
