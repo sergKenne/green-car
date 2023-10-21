@@ -8,7 +8,7 @@ import { IFuel, IMake, ILocation, IYear } from '../types';
 import { IProduct } from './Card';
 import Search from './Search';
 
-const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
+const Aside = ({ productsAfterSort }: { productsAfterSort: IProduct[]}) => {
   const {
     filtering,
     setFiltering,
@@ -19,7 +19,9 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     locations,
     setLocations, 
     selectRef,
-    setCurrentSort
+    setCurrentSort,
+    search,
+    setSearch
   } = useContext<any>(FilterContext)
 
   const [makes, setMakes] = useState<IMake[]>(JSON.parse(getDataFromStorage("makes")) || getMakes(products))
@@ -112,13 +114,15 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
     setDataToStorage("year", "Select year")
     setCurrentSort("Sort by")
     setFiltering([])
+    setSearch("")
   }
 
   useEffect(() => {
     setDataToStorage("makes", makes)
     setDataToStorage("fuels", fuels)
     setDataToStorage("locations", locations)
-  }, [makes, fuels, locations])
+    setDataToStorage("search", search)
+  }, [makes, fuels, locations, search])
 
   useEffect(() => {
     selectRef.current.value = JSON.parse(getDataFromStorage("year")) || "Select year"
@@ -129,7 +133,9 @@ const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
       <Search/>
       <div className="aside__box">
         <div className="aside__header-box">
-          <span className="aside__header-name aside__header-name--desc">Showing {productsFiltered.length} results of {products.length} items.</span>
+          <span className="aside__header-name aside__header-name--desc">
+            Showing <strong>{productsAfterSort.length} </strong> results of <strong>{products.length} </strong> items.
+          </span>
           <span
             className="aside__header-filter"
             onClick={clearAllFilter}

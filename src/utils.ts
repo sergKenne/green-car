@@ -1,6 +1,6 @@
 
 import { IProduct } from "./components/Card"
-import data from './data.json'
+//import data from './data.json'
 import { ESort } from "./types";
 
 
@@ -87,23 +87,9 @@ export const filterBySort = (sort: string, products: IProduct[]) => {
     }
 }
 
-//SEARCH PRODUCTS
-export const filterBySearch = (search: string, products: IProduct[]) => {
-    if (!search.trim().length) {
-        return products
-    } else {
-        return products.reduce((acc: IProduct[], curr: IProduct) => {
-            return curr.name.toLowerCase().includes(search.toLowerCase()) ||
-                curr.fuel.toLowerCase().includes(search.toLowerCase()) ||
-                curr.make.toLowerCase().includes(search.toLowerCase())
-                ? [...acc, curr]
-                : acc;
-        }, [])
-    }
-}
-
-export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
-    const obj: any = {};
+export const getProductsFiltered = (arrFiltered:string[], products:IProduct[]) => {
+    
+    const obj:any ={}
     arrFiltered.forEach((elt:any) => {
         if (!obj[Object.keys(elt)[0]]) {
             obj[Object.keys(elt)[0]] = [elt[Object.keys(elt)[0]]];
@@ -111,12 +97,21 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
             obj[Object.keys(elt)[0]] = [...obj[Object.keys(elt)[0]], elt[Object.keys(elt)[0]]];
         }
     });
-    console.log('getObjFiltering:', obj);
-    const conditionFilter = (key:any, item:any) => {
+
+    const conditionFilter = (key:string, item:any) => {
         if (key === 'location') {
             if (obj[key][0].trim() === item[key].split(' ')[1]) {
                 productsFiltered.push(item);
             }
+        } if (key === 'search') {
+            if (
+                item.name.toLowerCase().includes(obj[key][0].trim().toLowerCase()) ||
+                item.fuel.toLowerCase().includes(obj[key][0].trim().toLowerCase()) ||
+                item.make.toLowerCase().includes(obj[key][0].trim().toLowerCase()) 
+            ) {
+                productsFiltered.push(item);
+            }   
+
         } else if (key === 'mileage') {
             const min = obj[key][0][0];
             const max = obj[key][0][1];
@@ -140,15 +135,16 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
                 productsFiltered.push(item);
             }
         }
+
     }
 
     let productsFiltered:IProduct[] = [];
     let tempFiltered: IProduct[] = [];
     const objKeys = Object.keys(obj)
-    
+
     if (objKeys.length === 1) {
         objKeys.forEach((key) => {
-            data.forEach((item: any) => {
+            products.forEach((item: any) => {
                 conditionFilter(key, item)
             });
         });  
@@ -158,14 +154,12 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
         let counter = 1;
         objKeys.forEach((key) => {
             if (counter === 1) {
-                data.forEach(item => {
+                products.forEach(item => {
                     conditionFilter(key, item)
                 })
                 counter++
                 tempFiltered = [...productsFiltered];
                 productsFiltered = [];
-
-                console.log("tempFiltered:", tempFiltered);
             } else if(counter ===2){
                 tempFiltered.forEach((item:any) => {
                     conditionFilter(key, item);
@@ -178,13 +172,12 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
         let counter = 1;
         objKeys.forEach((key) => {
             if (counter === 1) {
-                data.forEach((item) => {
+                products.forEach((item) => {
                     conditionFilter(key, item);
                 });
                 counter++;
                 tempFiltered = [...productsFiltered];
                 productsFiltered = [];
-                console.log('tempFiltered:', tempFiltered);
             } else if(counter === 2) {
                 tempFiltered.forEach((item: any) => {
                     conditionFilter(key, item);
@@ -204,13 +197,12 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
         let counter = 1;
         objKeys.forEach((key) => {
             if (counter === 1) {
-                data.forEach((item) => {
+                products.forEach((item) => {
                     conditionFilter(key, item);
                 });
                 counter++;
                 tempFiltered = [...productsFiltered];
                 productsFiltered = [];
-                console.log('tempFiltered:', tempFiltered);
             } else if (counter === 2) {
                 tempFiltered.forEach((item: any) => {
                     conditionFilter(key, item);
@@ -237,13 +229,12 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
         let counter = 1;
         objKeys.forEach((key) => {
             if (counter === 1) {
-                data.forEach((item) => {
+                products.forEach((item) => {
                     conditionFilter(key, item);
                 });
                 counter++;
                 tempFiltered = [...productsFiltered];
                 productsFiltered = [];
-                console.log('tempFiltered:', tempFiltered);
             } else if (counter === 2) {
                 tempFiltered.forEach((item: any) => {
                     conditionFilter(key, item);
@@ -277,13 +268,12 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
         let counter = 1;
         objKeys.forEach((key) => {
             if (counter === 1) {
-                data.forEach((item) => {
+                products.forEach((item) => {
                     conditionFilter(key, item);
                 });
                 counter++;
                 tempFiltered = [...productsFiltered];
                 productsFiltered = [];
-                console.log('tempFiltered:', tempFiltered);
             } else if (counter === 2) {
                 tempFiltered.forEach((item: any) => {
                     conditionFilter(key, item);
@@ -306,6 +296,59 @@ export const getProductsFiltered = (arrFiltered:any, products:IProduct[]) => {
                 tempFiltered = [...productsFiltered];
                 productsFiltered = [];
             } else if (counter === 5) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+            }
+        });
+    }
+
+    if (objKeys.length === 7) {
+        let counter = 1;
+        objKeys.forEach((key) => {
+            if (counter === 1) {
+                products.forEach((item) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 2) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 3) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 4) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 5) {
+                tempFiltered.forEach((item: any) => {
+                    conditionFilter(key, item);
+                });
+                counter++;
+                tempFiltered = [...productsFiltered];
+                productsFiltered = [];
+            } else if (counter === 6) {
                 tempFiltered.forEach((item: any) => {
                     conditionFilter(key, item);
                 });

@@ -6,12 +6,12 @@ import products from "./data.json"
 import Dropdown from './components/Dropdown';
 import Aside from './components/Aside';
 import { FilterContext } from './context/FilterContext';
-import { filterBySearch, filterBySort, getProductsFiltered, setDataToStorage } from './utils';
+import { filterBySort, getProductsFiltered, setDataToStorage } from './utils';
 import NoFound from './components/NoFound';
 
 function App() {
 
-  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search } = useContext<any>(FilterContext)
+  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search, setSearch } = useContext<any>(FilterContext)
 
   const [pageNumber, setPageNumber] = useState(0);
   const usersPerPage = 10;
@@ -35,6 +35,11 @@ function App() {
       selectRef.current.value = "Select year"
       setDataToStorage("year", "Select year")
     }
+    if (item.search) {
+      setFiltering(filtering.filter((elt: any) => !elt.search))
+      setSearch("")
+      setDataToStorage("search", "")
+    }
   }
 
   const capitalize = (word:string) => {
@@ -45,8 +50,6 @@ function App() {
 
   const productsAfterSort = filterBySort(currentSort, productsFiltered)
 
-  const productsAfterSearch = filterBySearch(search, productsAfterSort)
-
   return (
     <div className="page">
       <div className="container">
@@ -54,7 +57,7 @@ function App() {
           <img src="img/logo.svg" alt="logo" className="header__logo" />
         </div>
         <div className="content">
-          <Aside productsFiltered={productsFiltered} />
+          <Aside productsAfterSort={productsAfterSort} />
           <div className="main content__main">
             <div className="main__top">
               <ul className="main__top-list">
@@ -83,11 +86,11 @@ function App() {
               <Dropdown/>
             </div>
             <div className="main__products">
-              {productsAfterSearch.slice(pagesVisited, pagesVisited + usersPerPage).map((product:IProduct) => <Card product={ product } key={product.id} />)}
+              {productsAfterSort.slice(pagesVisited, pagesVisited + usersPerPage).map((product:IProduct) => <Card product={ product } key={product.id} />)}
             </div>
-            {(productsAfterSearch.length === 0)  && <NoFound/>}
+            {(productsAfterSort.length === 0)  && <NoFound/>}
             <Pagination
-              products={productsAfterSearch}
+              products={productsAfterSort}
               usersPerPage={usersPerPage} 
               setPageNumber={setPageNumber}
             />
