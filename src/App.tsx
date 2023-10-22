@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './App.scss';
 import Card, { IProduct } from "./components/Card"
 import Pagination from './components/Pagination';
@@ -12,6 +12,8 @@ import NoFound from './components/NoFound';
 function App() {
 
   const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search, setSearch } = useContext<any>(FilterContext)
+
+  const [productsFiltered,setProductsFiltered] = useState<IProduct[]>([])
 
   const [pageNumber, setPageNumber] = useState(0);
   const usersPerPage = 10;
@@ -46,9 +48,11 @@ function App() {
     return word[0].toUpperCase() + word.slice(1).toLowerCase();
   }
 
-  const productsFiltered = (filtering.length === 0) ? products : getProductsFiltered(filtering, products)
-
-  const productsAfterSort = filterBySort(currentSort, productsFiltered)
+  useEffect(() => {
+    const productsAfterFiltered = (filtering.length === 0) ? products : getProductsFiltered(filtering, products)
+    const productsAfterSort = filterBySort(currentSort, productsAfterFiltered)
+    setProductsFiltered(productsAfterSort)
+  },[filtering])
 
   return (
     <div className="page">
@@ -57,7 +61,7 @@ function App() {
           <img src="img/logo.svg" alt="logo" className="header__logo" />
         </div>
         <div className="content">
-          <Aside productsAfterSort={productsAfterSort} />
+          <Aside productsFiltered={productsFiltered} />
           <div className="main content__main">
             <div className="main__top">
               <ul className="main__top-list">
@@ -86,11 +90,11 @@ function App() {
               <Dropdown/>
             </div>
             <div className="main__products">
-              {productsAfterSort.slice(pagesVisited, pagesVisited + usersPerPage).map((product:IProduct) => <Card product={ product } key={product.id} />)}
+              {productsFiltered.slice(pagesVisited, pagesVisited + usersPerPage).map((product:IProduct) => <Card product={ product } key={product.id} />)}
             </div>
-            {(productsAfterSort.length === 0)  && <NoFound/>}
+            {(productsFiltered.length === 0)  && <NoFound/>}
             <Pagination
-              products={productsAfterSort}
+              products={productsFiltered}
               usersPerPage={usersPerPage} 
               setPageNumber={setPageNumber}
             />

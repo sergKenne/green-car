@@ -8,7 +8,7 @@ import { IFuel, IMake, ILocation, IYear } from '../types';
 import { IProduct } from './Card';
 import Search from './Search';
 
-const Aside = ({ productsAfterSort }: { productsAfterSort: IProduct[]}) => {
+const Aside = ({ productsFiltered }: { productsFiltered: IProduct[]}) => {
   const {
     filtering,
     setFiltering,
@@ -134,7 +134,7 @@ const Aside = ({ productsAfterSort }: { productsAfterSort: IProduct[]}) => {
       <div className="aside__box">
         <div className="aside__header-box">
           <span className="aside__header-name aside__header-name--desc">
-            Showing <strong>{productsAfterSort.length} </strong> results of <strong>{products.length} </strong> items.
+            Showing <strong>{productsFiltered.length} </strong> results of <strong>{products.length} </strong> items.
           </span>
           <span
             className="aside__header-filter"
