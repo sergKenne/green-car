@@ -42,3 +42,14 @@ export type IRange = {
     setRange: any;
 };
 
+// export type IFiltering =
+//     { make: string, } |
+//     { price: number[] } |
+//     { mileage: number[] } |
+//     { year: number } |
+//     { fuel: string } |
+//     { location: string } |
+//     { search: string };
+   
+
+
