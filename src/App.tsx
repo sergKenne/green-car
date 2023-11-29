@@ -54,7 +54,7 @@ function App() {
     const objSearchParams: any = {};
     arrFiltering.forEach((elt: any) => {
       const key = Object.keys(elt)[0];
-      if (key === "make" || key === "fuel" || key === "location") {
+      if (key === "make" || key === "fuel" || key === "location" || key === "year") {
         if (objSearchParams[key]) {
           objSearchParams[key] = `${objSearchParams[key]}%${elt[key]}`
         } else {
@@ -71,7 +71,7 @@ function App() {
     const productsAfterFiltered = (filtering.length === 0) ? products : getProductsFiltered(filtering, products)
     setProductsFiltered(productsAfterFiltered)
     setSearchParams(getObjectSearchParams(filtering))
-  }, [filtering])
+  }, [filtering,])
   
   const productsAfterSort = filterBySort(currentSort, productsFiltered)
 
