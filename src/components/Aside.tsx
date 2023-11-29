@@ -163,7 +163,7 @@ const Aside = ({ productsAfterSort }: { productsAfterSort: IProduct[]}) => {
                 onChange={handleChange}
               />
               <span className="aside__input-btn">
-                <img src="img/check.svg" alt={item.make} className="aside__input-icon" />
+                <img src="/img/check.svg" alt={item.make} className="aside__input-icon" />
               </span>
               <span>{item.make}</span>
             </label>
@@ -241,7 +241,7 @@ const Aside = ({ productsAfterSort }: { productsAfterSort: IProduct[]}) => {
                 onChange={handleChange}
               />
               <span className="aside__input-btn">
-                <img src="img/check.svg" alt={item.fuel} className="aside__input-icon" />
+                <img src="/img/check.svg" alt={item.fuel} className="aside__input-icon" />
               </span>
               <span>{item.fuel}</span>
             </label>

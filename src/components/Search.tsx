@@ -16,7 +16,7 @@ const Search = () => {
 
   return (
     <form className="aside__search">
-      <img src="img/search-icon.svg" alt="search icon" className="aside__search-icon" />
+      <img src="/img/search-icon.svg" alt="search icon" className="aside__search-icon" />
       <input
         type="text"
         className="aside__search-input"

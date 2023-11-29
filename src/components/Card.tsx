@@ -27,7 +27,7 @@ const Card = ({ product }: IProps) => {
 
   return (
     <div className='card'>
-      <img src={`img/${img?img:"card-default.jpeg"}`} alt="" className="card__img" />
+      <img src={`/img/${img?img:"card-default.jpeg"}`} alt="" className="card__img" />
       <div className="card__body">
         <h4 className="card__title">
           <span>{ name }</span>
