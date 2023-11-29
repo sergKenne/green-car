@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Routes, Route, Navigate, useSearchParams} from "react-router-dom";
+import { Routes, Route, Navigate, useSearchParams, useNavigate } from "react-router-dom";
 import './App.scss';
 import Card, { IProduct } from "./components/Card"
 import Pagination from './components/Pagination';
@@ -10,11 +10,11 @@ import { FilterContext } from './context/FilterContext';
 import { filterBySort, getProductsFiltered, setDataToStorage } from './utils';
 import NoFound from './components/NoFound';
 
-
 function App() {
   
   const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search, setSearch} = useContext<any>(FilterContext)
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [productsFiltered, setProductsFiltered] = useState<IProduct[]>([]);
 
   const [pageNumber, setPageNumber] = useState(0);
@@ -54,7 +54,7 @@ function App() {
     const objSearchParams: any = {};
     arrFiltering.forEach((elt: any) => {
       const key = Object.keys(elt)[0];
-      if (key === "make" || key === "fuel" || key === "location" || key === "year") {
+      if (key === "make" || key === "fuel" || key === "location" || key === "year" || key === "search") {
         if (objSearchParams[key]) {
           objSearchParams[key] = `${objSearchParams[key]}%${elt[key]}`
         } else {
@@ -72,6 +72,10 @@ function App() {
     setProductsFiltered(productsAfterFiltered)
     setSearchParams(getObjectSearchParams(filtering))
   }, [filtering,])
+
+  useEffect(() => {
+    navigate("/seller/cars-store")
+  },[])
   
   const productsAfterSort = filterBySort(currentSort, productsFiltered)
 
@@ -84,8 +88,7 @@ function App() {
         <div className="content">
           <Aside productsAfterSort={productsAfterSort} />
           <Routes>
-            <Route path='/' element={<Navigate to="/seller/cars-store" replace />} />
-            <Route  path='/seller/cars-store' element={
+            <Route path='/seller/cars-store' element={
               <div className="main content__main">
                 <div className="main__top">
                   <ul className="main__top-list">
