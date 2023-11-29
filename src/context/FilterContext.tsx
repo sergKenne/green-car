@@ -39,7 +39,7 @@ export const AppFilterContext = ({ children }:{children: ReactNode}) => {
         currentSort,
         setCurrentSort,
         search,
-        setSearch
+        setSearch,
       }}
     >
       {children}

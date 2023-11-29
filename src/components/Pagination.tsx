@@ -5,7 +5,7 @@ import { IProduct } from './Card';
 type IPagination = {
   products: IProduct[],
   usersPerPage: number,
-  setPageNumber: any
+  setPageNumber: any,
 }
 
 const Pagination = ({ products, usersPerPage, setPageNumber }: IPagination ) => {
@@ -14,6 +14,12 @@ const Pagination = ({ products, usersPerPage, setPageNumber }: IPagination ) => 
 
   const changePage = ({ selected }:any) => {
     setPageNumber(selected);
+    
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    })
   };
 
   return (

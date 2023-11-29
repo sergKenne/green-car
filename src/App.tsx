@@ -12,14 +12,15 @@ import NoFound from './components/NoFound';
 
 function App() {
   
-  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search, setSearch} = useContext<any>(FilterContext)
+  const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search, setSearch,} = useContext<any>(FilterContext)
+
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const [productsFiltered, setProductsFiltered] = useState<IProduct[]>([]);
-
-  const [pageNumber, setPageNumber] = useState(0);
+  
   const usersPerPage = 10;
-  const pagesVisited = pageNumber * usersPerPage;
+  const [pageNumber, setPageNumber] = useState(0);
+  const [pagesVisited, setPagesVisited] = useState(pageNumber * usersPerPage);
   
   const removeFromFilter = (item: any) => {
     if (item.price) {
@@ -71,10 +72,21 @@ function App() {
     const productsAfterFiltered = (filtering.length === 0) ? products : getProductsFiltered(filtering, products)
     setProductsFiltered(productsAfterFiltered)
     setSearchParams(getObjectSearchParams(filtering))
-  }, [filtering,])
+    localStorage.setItem("searchParams", JSON.stringify(getObjectSearchParams(filtering)))
+    if (filtering.length) {
+      setPagesVisited(0)
+    } else {
+      setPagesVisited(pageNumber * usersPerPage)
+    }
+  }, [filtering])
+
+  useEffect(() => {
+    setPagesVisited(pageNumber * usersPerPage)
+  }, [pageNumber])
 
   useEffect(() => {
     navigate("/seller/cars-store")
+    localStorage.getItem("searchParams") && setSearchParams(JSON.parse(localStorage.getItem("searchParams")!))
   },[])
   
   const productsAfterSort = filterBySort(currentSort, productsFiltered)
