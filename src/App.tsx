@@ -85,7 +85,7 @@ function App() {
   }, [pageNumber])
 
   useEffect(() => {
-    navigate("/seller/cars-store")
+    navigate("/seller/cars-store", { replace: true })
     localStorage.getItem("searchParams") && setSearchParams(JSON.parse(localStorage.getItem("searchParams")!))
   },[])
   
@@ -100,7 +100,8 @@ function App() {
         <div className="content">
           <Aside productsAfterSort={productsAfterSort} />
           <Routes>
-            <Route path='/seller/cars-store' element={
+            {/* <Route index path='/' element={<Navigate replace to="/seller/cars-store" />} /> */}
+            <Route path='/' element={
               <div className="main content__main">
                 <div className="main__top">
                   <ul className="main__top-list">
