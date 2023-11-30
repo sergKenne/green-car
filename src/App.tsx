@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Routes, Route, Navigate, useSearchParams, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useSearchParams, useLocation } from "react-router-dom";
 import './App.scss';
 import Card, { IProduct } from "./components/Card"
 import Pagination from './components/Pagination';
@@ -15,7 +15,7 @@ function App() {
   const { filtering, setFiltering, setRangePrice, setRangeMileage, setLocations, locations, selectRef, currentSort, search, setSearch,} = useContext<any>(FilterContext)
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
+  let location = useLocation();
   const [productsFiltered, setProductsFiltered] = useState<IProduct[]>([]);
   
   const usersPerPage = 10;
@@ -85,7 +85,6 @@ function App() {
   }, [pageNumber])
 
   useEffect(() => {
-    navigate("/seller/cars-store", { replace: true })
     localStorage.getItem("searchParams") && setSearchParams(JSON.parse(localStorage.getItem("searchParams")!))
   },[])
   
@@ -100,8 +99,8 @@ function App() {
         <div className="content">
           <Aside productsAfterSort={productsAfterSort} />
           <Routes>
-            {/* <Route index path='/' element={<Navigate replace to="/seller/cars-store" />} /> */}
-            <Route path='/' element={
+            <Route path="/" element={<Navigate to="/seller/cars-store" state={{ from: location }} replace />} />
+            <Route path='/seller/cars-store' element={
               <div className="main content__main">
                 <div className="main__top">
                   <ul className="main__top-list">
