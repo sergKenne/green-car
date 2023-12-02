@@ -48,6 +48,7 @@ html * /* override x.xhtml.ru style */
   display: flex;
   gap: 30px;
   align-items: flex-start;
+  margin-bottom: 30px;
   @media screen and (max-width:780px) {
     flex-direction: column;
   }
